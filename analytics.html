@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analytics – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body data-page="analytics" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Analytics</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="analytics.html" class="active"><span class="material-icons">analytics</span><span>Analytics</span></a>
+            <a href="weekly-report.html"><span class="material-icons">calendar_month</span><span>Weekly</span></a>
+            <a href="insights.html"><span class="material-icons">lightbulb</span><span>Insights</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Activity Analytics</div>
+            <canvas id="analyticsGraph" height="200"></canvas>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Summary</div>
+            <div id="analyticsSummary"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

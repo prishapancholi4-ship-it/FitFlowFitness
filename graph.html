@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Progress Graph – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body data-page="graph" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Progress Graph</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html">
+                <span class="material-icons">home</span><span>Home</span>
+            </a>
+            <a href="measurements.html">
+                <span class="material-icons">monitor_weight</span><span>Measure</span>
+            </a>
+            <a href="graph.html" class="active">
+                <span class="material-icons">show_chart</span><span>Graph</span>
+            </a>
+            <a href="assessment.html">
+                <span class="material-icons">assignment</span><span>Assessment</span>
+            </a>
+            <a href="settings.html">
+                <span class="material-icons">settings</span><span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Weight Progress</div>
+            <canvas id="progressGraph" height="200"></canvas>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

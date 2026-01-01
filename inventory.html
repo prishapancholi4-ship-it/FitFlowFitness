@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="inventory" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Inventory</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="shop.html"><span class="material-icons">shopping_bag</span><span>Shop</span></a>
+            <a href="inventory.html" class="active"><span class="material-icons">inventory_2</span><span>Inventory</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <!-- EQUIPPED ICON DISPLAY -->
+        <section class="card">
+            <div class="card-title">Equipped Icon</div>
+            <p class="card-subtitle">This icon appears on your profile and dashboard.</p>
+
+            <div id="equippedIconDisplay" style="text-align:center; padding:20px 0;">
+                <span class="material-icons" style="font-size:48px; opacity:0.6;">account_circle</span>
+                <p style="margin-top:8px; opacity:0.6;">No icon equipped</p>
+            </div>
+        </section>
+
+        <!-- INVENTORY LIST -->
+        <section class="card">
+            <div class="card-title">Your Items</div>
+            <p class="card-subtitle">Icons, themes, and titles you’ve collected.</p>
+
+            <div id="inventoryList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

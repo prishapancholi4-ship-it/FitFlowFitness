@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assessment – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="assessment" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Assessment</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="measurements.html"><span class="material-icons">monitor_weight</span><span>Measure</span></a>
+            <a href="graph.html"><span class="material-icons">show_chart</span><span>Graph</span></a>
+            <a href="assessment.html" class="active"><span class="material-icons">assignment</span><span>Assessment</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">First-Time Assessment</div>
+            <p class="card-subtitle">
+                This short assessment helps personalize your starting level and challenges.
+            </p>
+
+            <div class="auth-field">
+                <label>Current activity level</label>
+                <select id="assessmentActivity">
+                    <option value="low">Low – just starting out</option>
+                    <option value="medium">Medium – somewhat active</option>
+                    <option value="high">High – very active</option>
+                </select>
+            </div>
+
+            <div class="auth-field">
+                <label>Main goal</label>
+                <select id="assessmentGoal">
+                    <option value="health">General health</option>
+                    <option value="strength">Strength</option>
+                    <option value="endurance">Endurance</option>
+                    <option value="habit">Building routines</option>
+                </select>
+            </div>
+
+            <button onclick="completeAssessment()">Complete Assessment</button>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Assessment Status</div>
+            <p id="assessmentResult">Please complete the assessment above.</p>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Settings – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="settings" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Settings</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html">
+                <span class="material-icons">home</span><span>Home</span>
+            </a>
+            <a href="profile.html">
+                <span class="material-icons">person</span><span>Profile</span>
+            </a>
+            <a href="settings.html" class="active">
+                <span class="material-icons">settings</span><span>Settings</span>
+            </a>
+            <a href="#" onclick="logoutUser()">
+                <span class="material-icons">logout</span><span>Logout</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Appearance</div>
+
+            <div class="auth-field">
+                <label>Theme</label>
+                <select id="themeSelect" onchange="saveSettings()">
+                    <option value="pastel">Pastel (Default)</option>
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Notifications</div>
+
+            <div class="auth-field">
+                <label>
+                    <input type="checkbox" id="notifToggle" onchange="saveSettings()">
+                    Enable notifications
+                </label>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Account</div>
+            <button onclick="logoutUser()">Logout</button>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

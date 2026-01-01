@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Measurements – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="measurements" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Measurements</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html">
+                <span class="material-icons">home</span><span>Home</span>
+            </a>
+            <a href="measurements.html" class="active">
+                <span class="material-icons">monitor_weight</span><span>Measure</span>
+            </a>
+            <a href="graph.html">
+                <span class="material-icons">show_chart</span><span>Graph</span>
+            </a>
+            <a href="assessment.html">
+                <span class="material-icons">assignment</span><span>Assessment</span>
+            </a>
+            <a href="settings.html">
+                <span class="material-icons">settings</span><span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Add Measurement</div>
+
+            <div class="auth-field">
+                <label>Date</label>
+                <input type="date" id="mDate">
+            </div>
+
+            <div class="auth-field">
+                <label>Weight (kg)</label>
+                <input type="number" id="mWeight" placeholder="e.g. 62.5">
+            </div>
+
+            <div class="auth-field">
+                <label>Body Fat (%)</label>
+                <input type="number" id="mBodyFat" placeholder="optional">
+            </div>
+
+            <div class="auth-field">
+                <label>Notes</label>
+                <textarea id="mNotes" placeholder="optional notes"></textarea>
+            </div>
+
+            <button onclick="addMeasurement()">Add Measurement</button>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Your Measurements</div>
+            <div id="measurementList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

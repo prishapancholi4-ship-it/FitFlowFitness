@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mood – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="mood" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Mood</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="mood.html" class="active"><span class="material-icons">mood</span><span>Mood</span></a>
+            <a href="journal.html"><span class="material-icons">edit_note</span><span>Journal</span></a>
+            <a href="meditation.html"><span class="material-icons">self_improvement</span><span>Meditate</span></a>
+            <a href="affirmations.html"><span class="material-icons">auto_awesome</span><span>Affirm</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">How are you feeling?</div>
+
+            <div class="auth-field">
+                <select id="moodSelect">
+                    <option value="">Select mood</option>
+                    <option value="happy">Happy</option>
+                    <option value="calm">Calm</option>
+                    <option value="stressed">Stressed</option>
+                    <option value="sad">Sad</option>
+                    <option value="energized">Energized</option>
+                    <option value="tired">Tired</option>
+                </select>
+            </div>
+
+            <div class="auth-field">
+                <textarea id="moodNotes" placeholder="Add notes (optional)"></textarea>
+            </div>
+
+            <button onclick="saveMood()">Save Mood</button>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Mood History</div>
+            <div id="moodList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Habits – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="habits" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Habits</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="habits.html" class="active"><span class="material-icons">check_circle</span><span>Habits</span></a>
+            <a href="challenges.html"><span class="material-icons">flag</span><span>Challenges</span></a>
+            <a href="journal.html"><span class="material-icons">edit_note</span><span>Journal</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Add Habit</div>
+            <div class="auth-field">
+                <input type="text" id="habitInput" placeholder="e.g. Drink water, Stretch, Read 10 mins">
+            </div>
+            <button onclick="addHabit()">Add Habit</button>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Your Habits</div>
+            <div id="habitList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

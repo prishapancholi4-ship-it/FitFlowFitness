@@ -1,0 +1,223 @@
+/* --------------------------------------------------
+   GLOBAL THEME — Warm White + Energetic Pastels
+-------------------------------------------------- */
+
+:root {
+    --bg: #fefdfb;                 /* warm white */
+    --card: #ffffff;
+    --accent: #7acbff;             /* energetic sky blue */
+    --accent-2: #ffb3d1;           /* lively pink */
+    --accent-3: #b4f5c6;           /* mint green */
+    --accent-4: #ffe7a1;           /* soft warm yellow */
+    --text: #2f2f2f;
+    --subtext: #6b6b6b;
+    --border: #ececec;
+    --radius: 16px;
+    --shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    font-family: "Inter", sans-serif;
+    color: var(--text);
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------
+   PAGE CONTAINER — Clean, Centered, Professional
+-------------------------------------------------- */
+
+.page-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* --------------------------------------------------
+   NAV BAR — Pastel Tabs
+-------------------------------------------------- */
+
+.top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 16px;
+    background: var(--card);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.top-nav a {
+    padding: 10px 16px;
+    background: var(--accent-3);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 600;
+    transition: 0.25s;
+}
+
+.top-nav a:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.top-nav a.active {
+    background: var(--accent);
+    color: white;
+}
+
+/* --------------------------------------------------
+   CARD LAYOUT — Clean, Fun, Professional
+-------------------------------------------------- */
+
+.card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* --------------------------------------------------
+   GRID LAYOUT — Neat & Responsive
+-------------------------------------------------- */
+
+.list-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 700px) {
+    .list-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* --------------------------------------------------
+   BUTTONS — Energetic Pastel Buttons
+-------------------------------------------------- */
+
+button {
+    padding: 12px 18px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: var(--accent-2);
+}
+
+.button-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* --------------------------------------------------
+   INPUTS — Clean & Soft
+-------------------------------------------------- */
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin: 10px 0;
+    font-size: 15px;
+    background: #fff;
+}
+
+/* --------------------------------------------------
+   SEASON HEADER — Warm Pastel Banner
+-------------------------------------------------- */
+
+.season-header {
+    background: var(--accent-2);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin: 24px 0;
+    color: #fff;
+    text-align: center;
+}
+
+#dashSeasonName {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+#dashSeasonCountdown {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* --------------------------------------------------
+   WELLNESS SECTIONS — Sleep, Water, Meditation
+-------------------------------------------------- */
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.water-bar {
+    background: #e8e8e8;
+    height: 22px;
+    width: 100%;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.water-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    transition: width 0.3s ease;
+}
+
+/* --------------------------------------------------
+   AFFIRMATIONS — Fun & Energetic
+-------------------------------------------------- */
+
+#affirmationText {
+    font-size: 20px;
+    font-weight: 600;
+    background: var(--accent-3);
+    padding: 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .top-nav {
+        flex-direction: column;
+    }
+}

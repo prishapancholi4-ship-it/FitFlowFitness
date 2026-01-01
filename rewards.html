@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rewards – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="rewards" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Rewards</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="rewards.html" class="active"><span class="material-icons">redeem</span><span>Rewards</span></a>
+            <a href="badges.html"><span class="material-icons">military_tech</span><span>Badges</span></a>
+            <a href="achievements.html"><span class="material-icons">emoji_events</span><span>Achievements</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Your Reward Summary</div>
+            <p><strong>Level:</strong> <span id="rewardLevel">1</span></p>
+            <p><strong>Points:</strong> <span id="rewardPoints">0</span></p>
+            <p><strong>Badges:</strong> <span id="rewardBadgesCount">0</span></p>
+            <p><strong>Achievements:</strong> <span id="rewardAchievementsCount">0</span></p>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Recent Activity</div>
+            <div id="rewardList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

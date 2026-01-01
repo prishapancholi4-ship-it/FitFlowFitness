@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Journal – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="journal" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Journal</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="habits.html"><span class="material-icons">check_circle</span><span>Habits</span></a>
+            <a href="challenges.html"><span class="material-icons">flag</span><span>Challenges</span></a>
+            <a href="journal.html" class="active"><span class="material-icons">edit_note</span><span>Journal</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <section class="card">
+            <div class="card-title">Write a Journal Entry</div>
+            <p class="card-subtitle">You earn 5 points for each journal entry.</p>
+            <textarea id="journalInput" placeholder="How are you feeling today? What happened?"></textarea>
+            <button onclick="addJournal()">Add Entry</button>
+        </section>
+
+        <section class="card">
+            <div class="card-title">Your Entries</div>
+            <div id="journalList"></div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

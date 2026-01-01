@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel – FitFlow</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body data-page="admin" data-require-login>
+
+    <nav class="top-nav">
+        <div class="top-nav-title">Admin Panel</div>
+        <div class="top-nav-links">
+            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
+            <a href="admin.html" class="active"><span class="material-icons">admin_panel_settings</span><span>Admin</span></a>
+            <a href="shop.html"><span class="material-icons">shopping_bag</span><span>Shop</span></a>
+            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+        </div>
+    </nav>
+
+    <div class="app-shell">
+
+        <!-- SEASONAL CONTROL -->
+        <section class="card">
+            <div class="card-title">Seasonal Release Control</div>
+            <p class="card-subtitle">Choose which seasonal items are currently available in the shop.</p>
+
+            <label for="seasonSelect">Active Season</label>
+            <select id="seasonSelect">
+                <option value="spring">🌸 Spring</option>
+                <option value="summer">☀️ Summer</option>
+                <option value="autumn">🍂 Autumn</option>
+                <option value="winter">❄️ Winter</option>
+                <option value="all">⭐ All (Admin Testing)</option>
+            </select>
+
+            <button onclick="setSeason(document.getElementById('seasonSelect').value)">
+                Update Season
+            </button>
+        </section>
+
+        <!-- FUTURE ADMIN CONTROLS CAN GO HERE -->
+        <section class="card">
+            <div class="card-title">Admin Tools</div>
+            <p class="card-subtitle">More controls coming soon.</p>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
