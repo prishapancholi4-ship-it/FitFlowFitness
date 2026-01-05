@@ -1,61 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Assessment – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="assessment" data-require-login>
+<body>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Assessment</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="measurements.html"><span class="material-icons">monitor_weight</span><span>Measure</span></a>
-            <a href="graph.html"><span class="material-icons">show_chart</span><span>Graph</span></a>
-            <a href="assessment.html" class="active"><span class="material-icons">assignment</span><span>Assessment</span></a>
-        </div>
-    </nav>
+<script>
+  // Must be logged in
+  if (localStorage.getItem("fitflowLoggedIn") !== "true") {
+    window.location.href = "login.html";
+  }
 
-    <div class="app-shell">
+  // Must agree to privacy first
+  if (localStorage.getItem("fitflowPrivacyAgreed") !== "true") {
+    window.location.href = "privacy.html";
+  }
 
-        <section class="card">
-            <div class="card-title">First-Time Assessment</div>
-            <p class="card-subtitle">
-                This short assessment helps personalize your starting level and challenges.
-            </p>
+  // Must agree to terms second
+  if (localStorage.getItem("fitflowTermsAgreed") !== "true") {
+    window.location.href = "terms.html";
+  }
+</script>
 
-            <div class="auth-field">
-                <label>Current activity level</label>
-                <select id="assessmentActivity">
-                    <option value="low">Low – just starting out</option>
-                    <option value="medium">Medium – somewhat active</option>
-                    <option value="high">High – very active</option>
-                </select>
-            </div>
+<div class="container">
 
-            <div class="auth-field">
-                <label>Main goal</label>
-                <select id="assessmentGoal">
-                    <option value="health">General health</option>
-                    <option value="strength">Strength</option>
-                    <option value="endurance">Endurance</option>
-                    <option value="habit">Building routines</option>
-                </select>
-            </div>
+  <img src="fitflow-logo.png" alt="FitFlow logo" class="logo">
 
-            <button onclick="completeAssessment()">Complete Assessment</button>
-        </section>
+  <h1 class="gradient-text">Quick Assessment</h1>
 
-        <section class="card">
-            <div class="card-title">Assessment Status</div>
-            <p id="assessmentResult">Please complete the assessment above.</p>
-        </section>
+  <section class="card">
+    <h2>Tell Us About You</h2>
 
-    </div>
+    <label>Your Main Goal</label>
+    <input type="text" id="goalInput" placeholder="Get stronger, lose weight, feel better...">
 
-    <script src="script.js"></script>
+    <label>Your Experience Level</label>
+    <select id="experienceInput" style="width:100%; padding:12px; margin-top:6px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; background:#fafafa;">
+      <option value="">Select one</option>
+      <option value="beginner">Beginner</option>
+      <option value="intermediate">Intermediate</option>
+      <option value="advanced">Advanced</option>
+    </select>
+
+    <label>Your Preferred Focus</label>
+    <select id="focusInput" style="width:100%; padding:12px; margin-top:6px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; background:#fafafa;">
+      <option value="">Select one</option>
+      <option value="strength">Strength</option>
+      <option value="mobility">Mobility</option>
+      <option value="endurance">Endurance</option>
+      <option value="wellness">Wellness & Mindfulness</option>
+    </select>
+
+    <button onclick="completeAssessment()">Continue</button>
+    <p id="assessmentStatus" class="subtext"></p>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+
+<script>
+  function completeAssessment() {
+    const goal = document.getElementById("goalInput").value.trim();
+    const experience = document.getElementById("experienceInput").value;
+    const focus = document.getElementById("focusInput").value;
+    const status = document.getElementById("assessmentStatus");
+
+    if (!goal || !experience || !focus) {
+      status.textContent = "Please complete all fields.";
+      return;
+    }
+
+    // Save assessment data locally
+    localStorage.setItem("fitflowUserGoal", goal);
+    localStorage.setItem("fitflowUserExperience", experience);
+    localStorage.setItem("fitflowUserFocus", focus);
+
+    // Mark onboarding as complete
+    localStorage.setItem("fitflowOnboardingComplete", "true");
+
+    status.textContent = "Assessment complete. Redirecting...";
+    setTimeout(() => {
+      window.location.href = "dashboard.html";
+    }, 600);
+  }
+</script>
+
 </body>
 </html>

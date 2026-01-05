@@ -1,41 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Journal – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Journal</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="journal" data-require-login>
+<body onload="initJournal()">
+<div class="container">
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Journal</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="habits.html"><span class="material-icons">check_circle</span><span>Habits</span></a>
-            <a href="challenges.html"><span class="material-icons">flag</span><span>Challenges</span></a>
-            <a href="journal.html" class="active"><span class="material-icons">edit_note</span><span>Journal</span></a>
-            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
+  <h1 class="gradient-text">Your Journal</h1>
+  <p class="subtext">Flip through your entries like a real diary.</p>
+
+  <div class="journal-wrapper">
+    <div class="journal-book">
+
+      <!-- Left page -->
+      <div class="page left-page">
+        <div class="page-clipart"></div>
+        <div class="page-content">
+          <div class="page-meta">
+            <span id="leftDate" class="page-date"></span>
+            <span id="leftMood" class="page-mood"></span>
+          </div>
+          <h2 id="leftTitle" class="page-title"></h2>
+          <p id="leftBody" class="page-body"></p>
         </div>
-    </nav>
+      </div>
 
-    <div class="app-shell">
+      <!-- Right page -->
+      <div class="page right-page">
+        <div class="page-clipart"></div>
+        <div class="page-content">
+          <div class="page-meta">
+            <span id="rightDate" class="page-date"></span>
+            <span id="rightMood" class="page-mood"></span>
+          </div>
+          <h2 id="rightTitle" class="page-title"></h2>
+          <p id="rightBody" class="page-body"></p>
+        </div>
+      </div>
 
-        <section class="card">
-            <div class="card-title">Write a Journal Entry</div>
-            <p class="card-subtitle">You earn 5 points for each journal entry.</p>
-            <textarea id="journalInput" placeholder="How are you feeling today? What happened?"></textarea>
-            <button onclick="addJournal()">Add Entry</button>
-        </section>
+      <!-- Animated flipping sheet -->
+      <div class="page-flip" id="pageFlip">
+        <div class="page-clipart"></div>
+        <div class="page-content flip-content"></div>
+      </div>
 
-        <section class="card">
-            <div class="card-title">Your Entries</div>
-            <div id="journalList"></div>
-        </section>
-
+      <!-- Bookmarks -->
+      <div class="bookmarks">
+        <button class="bookmark" data-section="all">All</button>
+        <button class="bookmark" data-section="daily">Daily</button>
+        <button class="bookmark" data-section="gratitude">Gratitude</button>
+        <button class="bookmark" data-section="mood">Mood</button>
+      </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="journal-controls">
+    <button class="btn-secondary" onclick="prevPages()">&larr; Previous</button>
+    <button class="btn-primary" onclick="nextPages()">Next &rarr;</button>
+  </div>
+
+  <div class="journal-new-entry">
+    <h2>New Entry</h2>
+    <label class="field-label">Title</label>
+    <input type="text" id="entryTitle" class="input" placeholder="Today’s headline">
+
+    <label class="field-label">Mood</label>
+    <select id="entryMood" class="input">
+      <option value="😊 Calm">😊 Calm</option>
+      <option value="😌 Grateful">😌 Grateful</option>
+      <option value="💪 Motivated">💪 Motivated</option>
+      <option value="🧠 Reflective">🧠 Reflective</option>
+    </select>
+
+    <label class="field-label">Section</label>
+    <select id="entrySection" class="input">
+      <option value="daily">Daily</option>
+      <option value="gratitude">Gratitude</option>
+      <option value="mood">Mood</option>
+    </select>
+
+    <label class="field-label">Entry</label>
+    <textarea id="entryBody" class="input textarea" rows="5"
+      placeholder="Write your thoughts here like a diary..."></textarea>
+
+    <button class="btn-primary" onclick="saveEntry()">Save Entry</button>
+  </div>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="journal-data.js"></script>
+<script src="journal.js"></script>
+
 </body>
 </html>

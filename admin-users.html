@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – User Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initAdminUsers()">
+
+<div class="container">
+  <h1 class="gradient-text">User Management</h1>
+
+  <section class="card">
+    <h2>All Users</h2>
+    <ul id="userList"></ul>
+  </section>
+
+  <section class="card" id="editSection" style="display:none;">
+    <h2>Edit User</h2>
+
+    <p id="editUserLabel" class="subtext"></p>
+
+    <label>Points</label>
+    <input type="number" id="editPoints">
+
+    <label>Streak</label>
+    <input type="number" id="editStreak">
+
+    <label>Level</label>
+    <input type="number" id="editLevel">
+
+    <label>Badge</label>
+    <input type="text" id="editBadge">
+
+    <button onclick="saveUserEdits()">Save Changes</button>
+    <button onclick="resetUserLogs()">Reset Logs</button>
+    <button onclick="deleteUserAccount()">Delete User</button>
+    <button onclick="cancelEdit()">Cancel</button>
+
+    <p id="editStatus" class="subtext"></p>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="admin-users.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow Admin – Analytics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ADMIN PROTECTION -->
+<script>
+if (localStorage.getItem("fitflowUsername") !== "admin") {
+  window.location.href = "dashboard.html";
+}
+</script>
+
+<!-- HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
+
+<!-- SIDEBAR -->
+<div id="sideMenu" class="side-menu">
+  <h2 class="menu-title">FitFlow Admin</h2>
+
+  <button onclick="location.href='dashboard.html'">Back to Dashboard</button>
+  <button onclick="location.href='admin.html'">Back to Admin Dashboard</button>
+  <button onclick="logoutUser()">Logout</button>
+</div>
+
+<div class="container">
+  <h1 class="gradient-text">Analytics</h1>
+
+  <section class="card">
+    <h2>User Activity</h2>
+    <p><strong>Total Points:</strong> <span id="pointsDisplay"></span></p>
+    <p><strong>Total Streak:</strong> <span id="streakDisplay"></span></p>
+    <p><strong>Level:</strong> <span id="levelDisplay"></span></p>
+  </section>
+
+  <section class="card">
+    <h2>Engagement Stats</h2>
+    <p><strong>Journal Entries:</strong> <span id="journalCount"></span></p>
+    <p><strong>Blog Posts:</strong> <span id="blogCount"></span></p>
+    <p><strong>Blog Comments:</strong> <span id="commentCount"></span></p>
+  </section>
+
+  <section class="card">
+    <h2>Wellness Tracking</h2>
+    <p><strong>Water Logs:</strong> <span id="waterCount"></span></p>
+    <p><strong>Sleep Logs:</strong> <span id="sleepCount"></span></p>
+    <p><strong>Workout Logs:</strong> <span id="workoutCount"></span></p>
+    <p><strong>Nutrition Logs:</strong> <span id="nutritionCount"></span></p>
+  </section>
+</div>
+
+<script src="fitflow-global.js"></script>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
+
+function logoutUser() {
+  localStorage.removeItem("fitflowUsername");
+  localStorage.removeItem("fitflowOnboardingComplete");
+  window.location.href = "login.html";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  updateGlobalUI();
+
+  // Load analytics
+  const journal = JSON.parse(localStorage.getItem("fitflowJournal")) || [];
+  const posts = JSON.parse(localStorage.getItem("fitflowBlogPosts")) || [];
+  const water = JSON.parse(localStorage.getItem("fitflowWaterLogs")) || [];
+  const sleep = JSON.parse(localStorage.getItem("fitflowSleepLogs")) || [];
+  const workouts = JSON.parse(localStorage.getItem("fitflowWorkoutLogs")) || [];
+  const nutrition = JSON.parse(localStorage.getItem("fitflowNutritionLogs")) || [];
+
+  let commentCount = 0;
+  posts.forEach(p => commentCount += p.comments.length);
+
+  document.getElementById("journalCount").textContent = journal.length;
+  document.getElementById("blogCount").textContent = posts.length;
+  document.getElementById("commentCount").textContent = commentCount;
+
+  document.getElementById("waterCount").textContent = water.length;
+  document.getElementById("sleepCount").textContent = sleep.length;
+  document.getElementById("workoutCount").textContent = workouts.length;
+  document.getElementById("nutritionCount").textContent = nutrition.length;
+});
+</script>
+
+</body>
+</html>

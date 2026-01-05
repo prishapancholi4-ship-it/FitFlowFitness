@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blog – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Blog</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="blog" data-require-login>
+<body onload="initBlog()">
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Blog</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="blog.html" class="active"><span class="material-icons">article</span><span>Blog</span></a>
-            <a href="new-post.html"><span class="material-icons">edit</span><span>New Post</span></a>
-            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
-        </div>
-    </nav>
+<div class="container">
+  <h1 class="gradient-text">FitFlow Blog</h1>
 
-    <div class="app-shell">
+  <section class="card">
+    <h2>Recent Posts</h2>
+    <ul id="blogList"></ul>
+  </section>
 
-        <section class="card">
-            <div class="card-title">Community Posts</div>
-            <div id="blogList"></div>
-        </section>
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
 
-    </div>
+<script src="fitflow-global.js"></script>
+<script src="blog.js"></script>
+<!-- ADMIN-ONLY FLOATING BUTTON -->
+<button id="newPostBtn" class="floating-btn" onclick="openPostModal()">+</button>
 
-    <script src="script.js"></script>
+<!-- CREATE POST MODAL -->
+<div id="postModal" class="modal">
+  <div class="modal-content">
+    <h2>Create Post</h2>
+    <textarea id="newPostText" placeholder="Write your post..."></textarea>
+    <button onclick="createPost()">Publish</button>
+    <button onclick="closePostModal()">Cancel</button>
+    <p id="postStatus" class="subtext"></p>
+  </div>
+</div>
+
 </body>
 </html>

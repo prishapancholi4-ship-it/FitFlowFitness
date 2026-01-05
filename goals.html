@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affirmations – FitFlow</title>
+  <title>Goals – FitFlow</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -61,15 +61,15 @@
 
 <div class="container">
 
-  <h1 class="gradient-text">Affirmations</h1>
+  <h1 class="gradient-text">Goals</h1>
 
   <section class="card">
-    <h2>Write an Affirmation</h2>
+    <h2>Add a Goal</h2>
 
-    <input type="text" id="affirmInput" placeholder="I am strong, capable, and growing.">
+    <input type="text" id="goalInput" placeholder="Run 3 times a week">
 
-    <button onclick="saveAffirmation()">Save Affirmation</button>
-    <p id="affirmStatus" class="subtext"></p>
+    <button onclick="saveGoal()">Save Goal</button>
+    <p id="goalStatus" class="subtext"></p>
   </section>
 
 </div>
@@ -83,19 +83,19 @@
     menu.classList.toggle("open");
   }
 
-  function saveAffirmation() {
-    const text = document.getElementById("affirmInput").value.trim();
-    const status = document.getElementById("affirmStatus");
+  function saveGoal() {
+    const goal = document.getElementById("goalInput").value.trim();
+    const status = document.getElementById("goalStatus");
 
-    if (!text) {
-      status.textContent = "Write an affirmation first.";
+    if (!goal) {
+      status.textContent = "Enter a goal first.";
       return;
     }
 
-    // Award points for affirmations
-    addPoints(6);
+    // Award points for adding a goal
+    addPoints(4);
 
-    status.textContent = "Affirmation saved.";
+    status.textContent = "Goal saved.";
   }
 </script>
 

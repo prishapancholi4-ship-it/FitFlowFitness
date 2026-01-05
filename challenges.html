@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Challenges – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenges – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="challenges" data-require-login>
+<body>
+<div class="container">
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Daily Challenges</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="habits.html"><span class="material-icons">check_circle</span><span>Habits</span></a>
-            <a href="challenges.html" class="active"><span class="material-icons">flag</span><span>Challenges</span></a>
-            <a href="journal.html"><span class="material-icons">edit_note</span><span>Journal</span></a>
-            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
-        </div>
-    </nav>
-
-    <div class="app-shell">
-
-        <section class="card">
-            <div class="card-title">Today's Challenges</div>
-            <p class="card-subtitle">Complete challenges to earn 10 points each.</p>
-            <div id="challengeList"></div>
-        </section>
-
+  <nav class="navbar">
+    <div class="logo">FitFlow</div>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
     </div>
+  </nav>
 
-    <script src="script.js"></script>
+  <h1>Challenges</h1>
+  <p class="subtext">Join simple quests to boost your progress.</p>
+
+  <section class="card gradient-box" style="padding:25px; max-width:700px; margin:0 auto;">
+    <h2>This Week’s Challenge</h2>
+    <p class="subtext" id="currentChallengeText">
+      Walk or move for at least 20 minutes on 3 different days this week.
+    </p>
+
+    <button style="margin-top:15px;" onclick="completeChallenge()">
+      Mark Challenge Complete
+    </button>
+    <p id="challengeStatus" class="subtext" style="margin-top:10px;"></p>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script>
+(function() {
+  if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
+    window.location.href = "login.html";
+  }
+})();
+
+function completeChallenge() {
+  const already = localStorage.getItem("fitflowChallengeCompletedThisWeek") === "true";
+  const status = document.getElementById("challengeStatus");
+
+  if (already) {
+    status.textContent = "You’ve already claimed this challenge reward.";
+    return;
+  }
+
+  addPoints(15);
+  localStorage.setItem("fitflowChallengeCompletedThisWeek", "true");
+  status.textContent = "Challenge completed! +15 points.";
+}
+</script>
+
 </body>
 </html>

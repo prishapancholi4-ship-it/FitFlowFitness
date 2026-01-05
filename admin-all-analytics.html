@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Global Analytics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initGlobalAnalytics()">
+
+<div class="container">
+  <h1 class="gradient-text">Global Analytics</h1>
+
+  <section class="card">
+    <h2>Overview</h2>
+    <ul>
+      <li>Total Users: <strong id="totalUsers">0</strong></li>
+      <li>Total Points: <strong id="totalPoints">0</strong></li>
+      <li>Average Streak: <strong id="avgStreak">0</strong></li>
+      <li>Total Logs: <strong id="totalLogs">0</strong></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Leaderboards</h2>
+    <ul id="leaderboard"></ul>
+  </section>
+
+  <section class="card">
+    <h2>Activity Insights</h2>
+    <p>Most Active User: <strong id="mostActive">—</strong></p>
+    <p>Least Active User: <strong id="leastActive">—</strong></p>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="admin-all-analytics.js"></script>
+
+</body>
+</html>

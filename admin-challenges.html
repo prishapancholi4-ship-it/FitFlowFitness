@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Admin Challenges</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initAdminChallenges()">
+
+<div class="container">
+  <h1 class="gradient-text">Challenge Manager</h1>
+
+  <section class="card">
+    <h2>Create Challenge</h2>
+    <input type="text" id="challengeName" placeholder="Challenge name">
+    <input type="number" id="challengePoints" placeholder="Points reward">
+    <button onclick="addChallenge()">Add Challenge</button>
+    <p id="challengeStatus" class="subtext"></p>
+  </section>
+
+  <section class="card">
+    <h2>Existing Challenges</h2>
+    <ul id="challengeList"></ul>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="admin-challenges.js"></script>
+
+</body>
+</html>

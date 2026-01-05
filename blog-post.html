@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Blog Post</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initPost()">
+
+<div class="container">
+  <h1 class="gradient-text">Post</h1>
+
+  <section class="card">
+    <p id="postAuthor" class="subtext"></p>
+    <p id="postText"></p>
+    <p id="postTime" class="subtext"></p>
+  </section>
+
+  <section class="card">
+    <h2>Comments</h2>
+    <ul id="commentList"></ul>
+
+    <textarea id="commentInput" placeholder="Write a comment..."></textarea>
+    <button onclick="addComment()">Post Comment</button>
+    <p id="commentStatus" class="subtext"></p>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="blog-post.js"></script>
+
+</body>
+</html>

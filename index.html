@@ -1,32 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>FitFlow – Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Wellness Made Simple</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <div class="container">
 
-    <nav class="top-nav">
-        <div class="top-nav-title">FitFlow</div>
-        <div class="top-nav-links">
-            <a href="login.html"><span class="material-icons">login</span><span>Login</span></a>
-            <a href="register.html"><span class="material-icons">person_add</span><span>Register</span></a>
-            <a href="about.html"><span class="material-icons">info</span><span>About</span></a>
-        </div>
+    <nav class="navbar">
+      <div class="logo">FitFlow</div>
+      <div class="nav-links">
+        <a href="login.html">Login</a>
+      </div>
     </nav>
 
-    <div class="app-shell">
+    <section class="card gradient-box" style="padding:40px; text-align:center;">
+      <h1 style="font-size:2.2rem; margin-bottom:10px;">Welcome to FitFlow</h1>
+      <p class="subtext" style="color:white; max-width:600px; margin:0 auto;">
+        A calm, simple space to build habits, track your wellness, and grow at your own pace.
+      </p>
 
-        <section class="card">
-            <div class="card-title">Welcome to FitFlow</div>
-            <p>Your all‑in‑one fitness, wellness, and habit‑building companion.</p>
-            <a href="login.html" class="button">Get Started</a>
-        </section>
+      <button onclick="window.location.href='login.html'" style="margin-top:25px;">
+        Get Started
+      </button>
+    </section>
 
-    </div>
+    <section class="card" style="padding:30px; margin-top:30px;">
+      <h2>Your Daily Flow</h2>
+      <p class="subtext" style="margin-bottom:20px;">
+        FitFlow helps you stay consistent with gentle structure and beautiful design.
+      </p>
 
+      <ul style="list-style:none; padding-left:0; line-height:1.8;">
+        <li>• Track your habits and wellness routines</li>
+        <li>• Earn points and level up through 50 stages</li>
+        <li>• Build streaks and unlock badges</li>
+        <li>• Explore sleep, water, workouts, journaling, and more</li>
+      </ul>
+    </section>
+
+    <section class="card" style="padding:30px; margin-top:20px;">
+      <h2>Ready When You Are</h2>
+      <p class="subtext">
+        No pressure. No noise. Just a clean, supportive space to grow.
+      </p>
+      <button onclick="window.location.href='login.html'" style="margin-top:15px;">
+        Start Your Journey
+      </button>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>

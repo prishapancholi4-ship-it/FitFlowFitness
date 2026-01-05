@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Admin Tools</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initAdminTools()">
+
+<div class="container">
+  <h1 class="gradient-text">Admin Tools</h1>
+
+  <section class="card">
+    <h2>Utilities</h2>
+    <button onclick="resetAllLogs()">Reset All User Logs</button>
+    <button onclick="resetAllPoints()">Reset All Points</button>
+    <button onclick="resetAllStreaks()">Reset All Streaks</button>
+    <p id="toolsStatus" class="subtext"></p>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="admin-tools.js"></script>
+
+</body>
+</html>

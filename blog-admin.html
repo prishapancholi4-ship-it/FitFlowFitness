@@ -3,27 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Badges</title>
+  <title>FitFlow – Blog Admin</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="initBadges()">
+<body onload="initBlogAdmin()">
 
 <div class="container">
-  <h1 class="gradient-text">Your Badges</h1>
-  <p class="subtext">Collect badges from the Shop to fill your gallery.</p>
+  <h1 class="gradient-text">Blog Moderation</h1>
 
   <section class="card">
-    <h2>Owned Badges</h2>
-    <div id="badgeGrid" class="badge-grid"></div>
+    <h2>All Posts</h2>
+    <ul id="adminBlogList"></ul>
   </section>
 
   <button class="back-btn" onclick="goBack()">Back</button>
 </div>
 
 <script src="fitflow-global.js"></script>
-<script src="badge-data.js"></script>
-<script src="badges.js"></script>
+<script src="blog-admin.js"></script>
 
 </body>
 </html>

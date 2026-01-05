@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Admin Levels</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initAdminLevels()">
+
+<div class="container">
+  <h1 class="gradient-text">Level Manager</h1>
+
+  <section class="card">
+    <h2>Create Level</h2>
+    <input type="number" id="levelNumber" placeholder="Level number">
+    <input type="number" id="levelPoints" placeholder="Points required">
+    <button onclick="addLevel()">Add Level</button>
+    <p id="levelStatus" class="subtext"></p>
+  </section>
+
+  <section class="card">
+    <h2>Existing Levels</h2>
+    <ul id="levelList"></ul>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="admin-levels.js"></script>
+
+</body>
+</html>

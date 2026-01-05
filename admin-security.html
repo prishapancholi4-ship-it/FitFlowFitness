@@ -3,27 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Badges</title>
+  <title>FitFlow – Admin Security</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="initBadges()">
+<body onload="initAdminSecurity()">
 
 <div class="container">
-  <h1 class="gradient-text">Your Badges</h1>
-  <p class="subtext">Collect badges from the Shop to fill your gallery.</p>
+  <h1 class="gradient-text">Admin Security</h1>
 
   <section class="card">
-    <h2>Owned Badges</h2>
-    <div id="badgeGrid" class="badge-grid"></div>
+    <h2>Security Actions</h2>
+    <button onclick="forceLogoutAll()">Force Logout All Users</button>
+    <button onclick="resetAdminPassword()">Reset Admin Password</button>
+    <p id="securityStatus" class="subtext"></p>
   </section>
 
   <button class="back-btn" onclick="goBack()">Back</button>
 </div>
 
 <script src="fitflow-global.js"></script>
-<script src="badge-data.js"></script>
-<script src="badges.js"></script>
+<script src="admin-security.js"></script>
 
 </body>
 </html>
