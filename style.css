@@ -1,32 +1,22 @@
-/* =========================================================
-   ROOT VARIABLES — PASTEL PALETTE + SYSTEM
-   ========================================================= */
-
 :root {
-  /* Warm white base */
-  --base-bg: #fffdf9;
+  --base-bg: #ffffff;
 
-  /* Pastel accents (solid) */
-  --pink:   #ff7f9f;
-  --green:  #dfffb3;
-  --blue:   #bcdfff;
-  --orange: #ffbf8f;
+  --pink:   #ffd6dc;
+  --blue:   #d6f0ff;
+  --green:  #e6ffd6;
+  --orange: #ffe5cc;
 
-  /* Neutral text */
   --text-dark: #333;
   --text-mid:  #666;
-  --text-light:#888;
+  --text-light:#999;
 
-  /* Shadows */
-  --shadow-soft: 0 6px 18px rgba(0,0,0,0.06);
-  --shadow-med:  0 10px 24px rgba(0,0,0,0.08);
+  --shadow-soft: 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-med:  0 6px 18px rgba(0,0,0,0.06);
 
-  /* Radiuses */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
 
-  /* Spacing scale */
   --space-xs: 6px;
   --space-sm: 12px;
   --space-md: 20px;
@@ -34,10 +24,7 @@
   --space-xl: 48px;
 }
 
-/* =========================================================
-   RESET & BASE
-   ========================================================= */
-
+/* Base reset */
 *,
 *::before,
 *::after {
@@ -47,30 +34,24 @@
 html, body {
   margin: 0;
   padding: 0;
-}
-
-body {
   background: var(--base-bg);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--text-dark);
-  min-height: 100vh;
 }
 
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
-
-h1, h2, h3, h4 {
+/* Typography */
+h1, h2, h3 {
   margin: 0 0 var(--space-sm);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 p {
   margin: var(--space-xs) 0;
+  line-height: 1.6;
 }
 
 .gradient-text {
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--pink);
 }
@@ -80,12 +61,9 @@ p {
   color: var(--text-light);
 }
 
-/* =========================================================
-   LAYOUT
-   ========================================================= */
-
+/* Layout */
 .container {
-  max-width: 900px;
+  max-width: 420px;
   margin: var(--space-xl) auto;
   padding: 0 var(--space-md);
 }
@@ -94,14 +72,10 @@ p {
   background: #ffffff;
   border-radius: var(--radius-md);
   padding: var(--space-md);
-  margin-bottom: var(--space-md);
   box-shadow: var(--shadow-soft);
 }
 
-/* =========================================================
-   BUTTONS — BALANCED PASTEL SYSTEM
-   ========================================================= */
-
+/* Buttons */
 button {
   border: none;
   border-radius: 999px;
@@ -111,40 +85,35 @@ button {
   cursor: pointer;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   box-shadow: var(--shadow-soft);
-  color: #333;
+  color: #ffffff;
 }
 
-/* Primary (pink) */
 button.primary {
   background: var(--pink);
 }
 
-/* Secondary (blue) */
 button.secondary {
   background: var(--blue);
 }
 
-/* Success (green) */
 button.success {
   background: var(--green);
 }
 
-/* Utility (orange) */
 button.utility {
   background: var(--orange);
 }
 
 button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-1px);
   box-shadow: var(--shadow-med);
+  opacity: 0.95;
 }
 
-/* =========================================================
-   INPUTS
-   ========================================================= */
-
+/* Inputs */
 input[type="text"],
-input[type="number"],
+input[type="password"],
+input[type="email"],
 textarea {
   width: 100%;
   border-radius: var(--radius-sm);
@@ -153,299 +122,23 @@ textarea {
   font-size: 0.95rem;
   background: #ffffff;
   margin-bottom: var(--space-sm);
+  font-family: inherit;
 }
 
-textarea {
-  min-height: 80px;
-  resize: vertical;
-}
-
-/* =========================================================
-   SIDEBAR + BURGER
-   ========================================================= */
-
-.burger,
-.sidebar {
-  display: none;
-}
-
-.has-burger .burger,
-.has-burger .sidebar {
+label {
   display: block;
-}
-
-/* Burger */
-.burger {
-  font-size: 28px;
-  cursor: pointer;
-  padding: 10px;
-  position: fixed;
-  top: 12px;
-  left: 12px;
-  z-index: 1000;
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  left: -260px;
-  top: 0;
-  width: 260px;
-  height: 100%;
-  background: #ffffff;
-  box-shadow: 4px 0 20px rgba(0,0,0,0.08);
-  padding: var(--space-md);
-  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
-  transition: left 0.3s ease;
-  z-index: 999;
-}
-
-.sidebar.open {
-  left: 0;
-}
-
-.sidebar button {
-  width: 100%;
-  margin-bottom: var(--space-sm);
-  text-align: left;
-}
-
-/* Overlay */
-.sidebar-overlay {
-  display: none;
-}
-
-.sidebar-overlay.active {
-  display: block;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.25);
-  z-index: 900;
-}
-
-/* =========================================================
-   DASHBOARD
-   ========================================================= */
-
-.dashboard-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: var(--space-sm);
-}
-
-.dashboard-grid button {
-  width: 100%;
-}
-
-/* Progress bar */
-.progress-bar-outer {
-  width: 100%;
-  height: 12px;
-  background: var(--blue);
-  border-radius: 999px;
-  overflow: hidden;
-}
-
-.progress-bar-inner {
-  height: 100%;
-  width: 0%;
-  background: var(--pink);
-  transition: width 0.3s ease;
-}
-
-/* =========================================================
-   BADGES
-   ========================================================= */
-
-.badge-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-  gap: var(--space-md);
-}
-
-.badge-item {
-  background: #ffffff;
-  padding: var(--space-md);
-  border-radius: var(--radius-md);
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-}
-
-.badge-icon {
-  font-size: 42px;
-  margin-bottom: var(--space-xs);
-}
-
-.badge-name {
-  font-weight: bold;
-  color: var(--pink);
-}
-
-.badge-locked {
-  opacity: 0.45;
-  filter: grayscale(100%);
-}
-
-/* =========================================================
-   SHOP
-   ========================================================= */
-
-.shop-item {
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  padding: var(--space-md);
-  box-shadow: var(--shadow-soft);
-  margin-bottom: var(--space-sm);
-}
-
-/* =========================================================
-   BLOG POST LAYOUT
-   ========================================================= */
-
-.blog-container {
-  max-width: 760px;
-  margin: var(--space-xl) auto;
-  padding: 0 var(--space-md);
-}
-
-.blog-hero {
-  text-align: center;
-  margin-bottom: var(--space-md);
-}
-
-.blog-title {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--pink);
-}
-
-.blog-meta {
-  font-size: 0.85rem;
-  color: var(--text-light);
-}
-
-.blog-cover {
-  width: 100%;
-  height: 220px;
-  background: var(--blue);
-  border-radius: var(--radius-lg);
-  margin-bottom: var(--space-lg);
-  box-shadow: var(--shadow-soft);
-}
-
-.blog-article {
-  background: #ffffff;
-  padding: var(--space-lg);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  line-height: 1.75;
-  font-size: 1.05rem;
-}
-
-.blog-article h2 {
-  margin-top: var(--space-lg);
-  color: var(--orange);
-}
-
-.blog-article blockquote {
-  margin: var(--space-md) 0;
-  padding: var(--space-md);
-  background: var(--blue);
-  border-left: 4px solid var(--pink);
-  border-radius: var(--radius-md);
-  font-style: italic;
-}
-
-/* Comments */
-.blog-comments {
-  margin-top: var(--space-lg);
-  padding: var(--space-md);
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-#commentsList .comment {
-  background: var(--green);
-  border-radius: var(--radius-sm);
-  padding: var(--space-sm);
-  margin: var(--space-xs) 0;
-}
-
-/* =========================================================
-   JOURNAL — BOOK LAYOUT
-   ========================================================= */
-
-.journal-wrapper {
-  display: flex;
-  justify-content: center;
-  margin: var(--space-xl) 0;
-}
-
-.journal-book {
-  position: relative;
-  width: 100%;
-  max-width: 720px;
-  aspect-ratio: 3 / 2;
-  background: #ffffff;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-med);
-  padding: var(--space-lg);
-  display: flex;
-  gap: var(--space-md);
-  overflow: hidden;
-}
-
-.page {
-  width: 50%;
-  background: #ffffff;
-  border-radius: var(--radius-md);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05);
-  padding: var(--space-md);
-  display: flex;
-  flex-direction: column;
-}
-
-.page-title {
-  font-size: 1.1rem;
-  color: var(--pink);
-}
-
-.page-body {
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  margin-bottom: 4px;
   color: var(--text-mid);
-  line-height: 1.6;
-  overflow-y: auto;
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-
-@media (max-width: 768px) {
-  .journal-book {
-    flex-direction: column;
-    aspect-ratio: auto;
-  }
-
-  .page {
-    width: 100%;
-    height: 200px;
-  }
+/* Links */
+a {
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 0.9rem;
 }
 
-@media (max-width: 600px) {
-  .container {
-    margin-top: var(--space-lg);
-  }
-
-  .sidebar {
-    width: 220px;
-  }
+a:hover {
+  text-decoration: underline;
 }

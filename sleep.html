@@ -1,24 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sleep Tracking</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Sleep Log</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-require-login data-page="sleep">
+<body onload="initSleep()">
 
-<nav class="top-nav">
-    <a href="dashboard.html">Dashboard</a>
-    <a href="sleep.html" class="active">Sleep</a>
-    <a href="water.html">Water</a>
-    <a href="affirmations.html">Affirmations</a>
-    <a href="meditation.html">Meditation</a>
-</nav>
+<div class="container">
+  <h1 class="gradient-text">Sleep Tracker</h1>
 
-<h1>Sleep Tracking</h1>
+  <section class="card">
+    <label>Hours Slept</label>
+    <input type="number" id="sleepHours" placeholder="e.g., 7.5">
 
-<div id="sleepContainer"></div>
+    <button onclick="addSleep()">Add Sleep</button>
+    <p id="sleepStatus" class="subtext"></p>
+  </section>
 
-<script src="script.js"></script>
+  <section class="card">
+    <h2>Recent Sleep Logs</h2>
+    <ul id="sleepList"></ul>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="sleep.js"></script>
+
 </body>
 </html>

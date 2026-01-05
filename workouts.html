@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Workouts</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initWorkouts()">
+
+<div class="container">
+  <h1 class="gradient-text">Workout Log</h1>
+
+  <section class="card">
+    <label>Workout Type</label>
+    <input type="text" id="workoutType" placeholder="e.g., Push Day">
+
+    <label>Duration (minutes)</label>
+    <input type="number" id="workoutDuration" placeholder="e.g., 45">
+
+    <button onclick="addWorkout()">Add Workout</button>
+    <p id="workoutStatus" class="subtext"></p>
+  </section>
+
+  <section class="card">
+    <h2>Recent Workouts</h2>
+    <ul id="workoutList"></ul>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="workouts.js"></script>
+
+</body>
+</html>

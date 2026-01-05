@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Sign Up</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+  <h1 class="gradient-text">Create Your Account</h1>
+
+  <section class="card">
+    <label>Username</label>
+    <input type="text" id="username">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword">
+
+    <button onclick="handleSignup()">Sign Up</button>
+
+    <p id="signupStatus" class="subtext"></p>
+
+    <p class="subtext">
+      Already have an account?
+      <a href="login.html">Log in</a>
+    </p>
+  </section>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="signup.js"></script>
+
+</body>
+</html>

@@ -1,31 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Terms & Conditions – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Terms & Conditions</div>
-        <div class="top-nav-links">
-            <a href="index.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="privacy.html"><span class="material-icons">lock</span><span>Privacy</span></a>
-            <a href="about.html"><span class="material-icons">info</span><span>About</span></a>
-        </div>
-    </nav>
+<div class="container">
 
-    <div class="app-shell">
+  <img src="fitflow-logo.png" alt="FitFlow logo" class="logo">
 
-        <section class="card">
-            <div class="card-title">Terms & Conditions</div>
-            <p>Add your terms and conditions here.</p>
-        </section>
+  <h1 class="gradient-text">Terms of Service</h1>
 
-    </div>
+  <section class="card">
+    <h2>Using FitFlow Responsibly</h2>
+
+    <p>
+      By using FitFlow, you agree to use the platform in a safe, respectful, and responsible manner.
+      FitFlow is a personal wellness tool designed to support your habits, motivation, and progress.
+      It is not a medical device and should not be used as a substitute for professional health advice.
+    </p>
+
+    <h3 style="margin-top:20px;">Your Responsibilities</h3>
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>You will provide accurate information when logging wellness activities</li>
+      <li>You will use FitFlow for personal, non-commercial purposes</li>
+      <li>You understand that all progress is stored locally on your device</li>
+      <li>You are responsible for maintaining access to your device</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">Limitations</h3>
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>FitFlow does not guarantee specific health outcomes</li>
+      <li>FitFlow is not liable for data loss caused by device resets or browser clearing</li>
+      <li>FitFlow does not collect or store your data externally</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">Agreement</h3>
+    <p>
+      By selecting “I Agree,” you confirm that you have read and understood these terms and
+      consent to using FitFlow under these conditions.
+    </p>
+
+    <button onclick="agreeTerms()">I Agree</button>
+    <p id="termsStatus" class="subtext"></p>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+
+<script>
+  function agreeTerms() {
+    localStorage.setItem("fitflowTermsAgreed", "true");
+    document.getElementById("termsStatus").textContent = "Thank you. Redirecting...";
+    window.location.href = "assessment.html";
+  }
+</script>
 
 </body>
 </html>

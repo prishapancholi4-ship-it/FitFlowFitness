@@ -1,43 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Shop – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Shop</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="shop" data-require-login>
+<body onload="initShop()">
 
-    <!-- ⭐ FULL-WIDTH SEASONAL HEADER -->
-    <header class="season-header">
-        <div class="season-header-content">
-            <h2 id="seasonName">Season</h2>
-            <p id="seasonCountdown">Loading...</p>
-        </div>
-    </header>
+<div class="container">
+  <h1 class="gradient-text">Badge Shop</h1>
+  <p class="subtext">Spend your points to collect badges!</p>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Shop</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="shop.html" class="active"><span class="material-icons">shopping_bag</span><span>Shop</span></a>
-            <a href="inventory.html"><span class="material-icons">inventory_2</span><span>Inventory</span></a>
-            <a href="rewards.html"><span class="material-icons">redeem</span><span>Rewards</span></a>
-            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
-        </div>
-    </nav>
+  <section class="card">
+    <h2>Available Badges</h2>
+    <div id="shopList" class="badge-grid"></div>
+  </section>
 
-    <div class="app-shell">
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
 
-        <section class="card">
-            <div class="card-title">Available Items</div>
-            <p class="card-subtitle">Spend your points on icons, themes, and titles.</p>
-            <div id="shopList"></div>
-        </section>
+<script src="fitflow-global.js"></script>
+<script src="badge-data.js"></script>
+<script src="badge-categories.js"></script>
+<script src="badge-icons.js"></script>
+<script src="shop.js"></script>
 
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

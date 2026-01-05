@@ -1,31 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Privacy Policy – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Privacy Policy</div>
-        <div class="top-nav-links">
-            <a href="index.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="terms.html"><span class="material-icons">gavel</span><span>Terms</span></a>
-            <a href="about.html"><span class="material-icons">info</span><span>About</span></a>
-        </div>
-    </nav>
+<div class="container">
 
-    <div class="app-shell">
+  <img src="fitflow-logo.png" alt="FitFlow logo" class="logo">
 
-        <section class="card">
-            <div class="card-title">Privacy Policy</div>
-            <p>Add your privacy policy text here.</p>
-        </section>
+  <h1 class="gradient-text">Privacy Policy</h1>
 
-    </div>
+  <section class="card">
+    <h2>Your Privacy Matters</h2>
+
+    <p>
+      FitFlow is designed to be a personal wellness companion. We believe your data should stay
+      in your hands, so FitFlow stores all progress, preferences, and activity logs <strong>locally on your device</strong>.
+      No information is uploaded, transmitted, or shared with external servers.
+    </p>
+
+    <h3 style="margin-top:20px;">What We Store</h3>
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>Your points, streaks, and level progress</li>
+      <li>Your wellness logs (sleep, water, workouts, meals, meditation, affirmations, journal entries)</li>
+      <li>Your onboarding status</li>
+      <li>Your login state</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">What We Do NOT Store</h3>
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>No personal identity data is collected or transmitted</li>
+      <li>No analytics or tracking is performed</li>
+      <li>No data is shared with third parties</li>
+      <li>No cloud storage is used</li>
+    </ul>
+
+    <h3 style="margin-top:20px;">Your Control</h3>
+    <p>
+      You may clear all FitFlow data at any time by logging out or clearing your browser storage.
+      This will reset your progress and remove all locally stored information.
+    </p>
+
+    <button onclick="agreePrivacy()">I Agree</button>
+    <p id="privacyStatus" class="subtext"></p>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+
+<script>
+  function agreePrivacy() {
+    localStorage.setItem("fitflowPrivacyAgreed", "true");
+    document.getElementById("privacyStatus").textContent = "Thank you. Redirecting...";
+    window.location.href = "terms.html";
+  }
+</script>
 
 </body>
 </html>

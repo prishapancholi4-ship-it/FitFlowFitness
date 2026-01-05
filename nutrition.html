@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FitFlow – Nutrition</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="initNutrition()">
+
+<div class="container">
+  <h1 class="gradient-text">Nutrition Log</h1>
+
+  <section class="card">
+    <label>Food Item</label>
+    <input type="text" id="foodItem" placeholder="e.g., Chicken Bowl">
+
+    <label>Calories</label>
+    <input type="number" id="foodCalories" placeholder="e.g., 600">
+
+    <button onclick="addNutrition()">Add Entry</button>
+    <p id="nutritionStatus" class="subtext"></p>
+  </section>
+
+  <section class="card">
+    <h2>Recent Meals</h2>
+    <ul id="nutritionList"></ul>
+  </section>
+
+  <button class="back-btn" onclick="goBack()">Back</button>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="nutrition.js"></script>
+
+</body>
+</html>

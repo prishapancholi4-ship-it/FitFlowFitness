@@ -2,36 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Blog Post</title>
+  <title>Blog Post • FitFlow</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="blog.js"></script>
 </head>
 
-<body onload="initPost()">
+<body class="has-burger">
 
-<div class="container">
-  <h1 class="gradient-text">Post</h1>
+  <!-- Burger -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <section class="card">
-    <p id="postAuthor" class="subtext"></p>
-    <p id="postText"></p>
-    <p id="postTime" class="subtext"></p>
-  </section>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button onclick="location.href='dashboard.html'">Dashboard</button>
+    <button onclick="location.href='journal.html'">Journal</button>
+    <button onclick="location.href='badges.html'">Badges</button>
+    <button onclick="location.href='shop.html'">Shop</button>
+    <button onclick="location.href='blog.html'">Blog Home</button>
+  </div>
 
-  <section class="card">
-    <h2>Comments</h2>
-    <ul id="commentList"></ul>
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
-    <textarea id="commentInput" placeholder="Write a comment..."></textarea>
-    <button onclick="addComment()">Post Comment</button>
-    <p id="commentStatus" class="subtext"></p>
-  </section>
+  <div class="blog-container">
 
-  <button class="back-btn" onclick="goBack()">Back</button>
-</div>
+    <!-- Hero -->
+    <div class="blog-hero">
+      <h1 class="blog-title">How to Build a Consistent Wellness Routine</h1>
+      <p class="blog-meta">By Admin • January 5, 2026</p>
+    </div>
 
-<script src="fitflow-global.js"></script>
-<script src="blog-post.js"></script>
+    <!-- Cover Image (optional) -->
+    <div class="blog-cover"></div>
+
+    <!-- Article Body -->
+    <article class="blog-article">
+      <p>
+        Building a consistent wellness routine doesn’t have to feel overwhelming.
+        In fact, the key is to start small — tiny habits that compound over time.
+      </p>
+
+      <h2>Start With One Daily Habit</h2>
+      <p>
+        Choose something simple: a 5‑minute stretch, a glass of water, or a short walk.
+        The goal is not intensity — it’s consistency.
+      </p>
+
+      <h2>Track Your Progress</h2>
+      <p>
+        FitFlow helps you visualize your streaks and progress, making it easier to stay motivated.
+      </p>
+
+      <blockquote>
+        “Consistency beats intensity — every single time.”
+      </blockquote>
+
+      <h2>Celebrate Your Wins</h2>
+      <p>
+        Reward yourself for showing up. Small celebrations reinforce positive behavior.
+      </p>
+    </article>
+
+    <!-- Comments -->
+    <section class="blog-comments">
+      <h3>Comments</h3>
+
+      <div id="commentsList"></div>
+
+      <div class="comment-form">
+        <input type="text" id="commentInput" placeholder="Write a comment...">
+        <button onclick="addComment()">Post</button>
+      </div>
+    </section>
+
+  </div>
 
 </body>
 </html>

@@ -1,74 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Profile – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="profile" data-require-login>
+<body>
+<script>
+  if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Profile</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="habits.html"><span class="material-icons">check_circle</span><span>Habits</span></a>
-            <a href="challenges.html"><span class="material-icons">flag</span><span>Challenges</span></a>
-            <a href="journal.html"><span class="material-icons">edit_note</span><span>Journal</span></a>
-            <a href="shop.html"><span class="material-icons">shopping_bag</span><span>Shop</span></a>
-            <a href="inventory.html"><span class="material-icons">inventory_2</span><span>Inventory</span></a>
-            <a href="rewards.html"><span class="material-icons">redeem</span><span>Rewards</span></a>
-            <a href="profile.html" class="active"><span class="material-icons">person</span><span>Profile</span></a>
-            <a href="settings.html"><span class="material-icons">settings</span><span>Settings</span></a>
-        </div>
-    </nav>
+<div class="container">
 
-    <div class="app-shell">
+  <div style="text-align:center; margin-bottom:30px;">
+    <img src="fitflow-logo.png" alt="FitFlow logo" style="width:160px; max-width:100%;">
+  </div>
 
-        <section class="card">
-            <div class="card-title">Edit Profile</div>
+  <h1 class="gradient-text">Your Profile</h1>
 
-            <div class="auth-field">
-                <label>Display Name</label>
-                <input type="text" id="profileName">
-            </div>
+  <section class="card">
+    <h2>Account Details</h2>
+    <p>Email: <span id="profileEmail"></span></p>
+    <p>Level: <span id="levelDisplay"></span></p>
+    <p>Points: <span id="pointsDisplay"></span></p>
+    <p>Streak: <span id="streakDisplay"></span></p>
+    <p>Badge: <span id="badgeDisplay"></span></p>
+  </section>
 
-            <div class="auth-field">
-                <label>Bio</label>
-                <textarea id="profileBio"></textarea>
-            </div>
-
-            <div class="auth-field">
-                <label>Birthday</label>
-                <input type="date" id="profileBirthday">
-            </div>
-
-            <div class="auth-field">
-                <label>Gender</label>
-                <select id="profileGender">
-                    <option value="">Prefer not to say</option>
-                    <option value="female">Female</option>
-                    <option value="male">Male</option>
-                    <option value="nonbinary">Non‑binary</option>
-                </select>
-            </div>
-
-            <div class="auth-field">
-                <label>Fitness Goal</label>
-                <select id="profileGoal">
-                    <option value="health">General Health</option>
-                    <option value="strength">Strength</option>
-                    <option value="endurance">Endurance</option>
-                    <option value="habit">Build Habits</option>
-                </select>
-            </div>
-
-            <button onclick="saveProfile()">Save Profile</button>
-        </section>
-
+  <section class="card">
+    <h2>Progress</h2>
+    <div class="progress-track">
+      <div id="levelProgressBar"></div>
     </div>
+  </section>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>

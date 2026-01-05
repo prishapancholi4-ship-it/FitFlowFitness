@@ -1,65 +1,51 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Settings – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings – FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-page="settings" data-require-login>
+<body>
+<script>
+if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
+  window.location.href = "login.html";
+}
+</script>
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Settings</div>
-        <div class="top-nav-links">
-            <a href="dashboard.html">
-                <span class="material-icons">home</span><span>Home</span>
-            </a>
-            <a href="profile.html">
-                <span class="material-icons">person</span><span>Profile</span>
-            </a>
-            <a href="settings.html" class="active">
-                <span class="material-icons">settings</span><span>Settings</span>
-            </a>
-            <a href="#" onclick="logoutUser()">
-                <span class="material-icons">logout</span><span>Logout</span>
-            </a>
-        </div>
-    </nav>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
 
-    <div class="app-shell">
+<div id="sideMenu" class="side-menu">
+  <h2 class="menu-title">FitFlow Menu</h2>
+  <button onclick="location.href='dashboard.html'">Dashboard</button>
+  <button onclick="location.href='settings.html'">Settings</button>
+  <button onclick="logoutUser()">Logout</button>
+</div>
 
-        <section class="card">
-            <div class="card-title">Appearance</div>
+<div class="container">
+  <h1 class="gradient-text">Settings</h1>
 
-            <div class="auth-field">
-                <label>Theme</label>
-                <select id="themeSelect" onchange="saveSettings()">
-                    <option value="pastel">Pastel (Default)</option>
-                    <option value="light">Light</option>
-                    <option value="dark">Dark</option>
-                </select>
-            </div>
-        </section>
+  <section class="card">
+    <h2>Account</h2>
+    <button onclick="logoutUser()">Logout</button>
+  </section>
+</div>
 
-        <section class="card">
-            <div class="card-title">Notifications</div>
+<script src="fitflow-global.js"></script>
 
-            <div class="auth-field">
-                <label>
-                    <input type="checkbox" id="notifToggle" onchange="saveSettings()">
-                    Enable notifications
-                </label>
-            </div>
-        </section>
+<script>
+function toggleMenu() {
+  document.getElementById("sideMenu").classList.toggle("open");
+}
 
-        <section class="card">
-            <div class="card-title">Account</div>
-            <button onclick="logoutUser()">Logout</button>
-        </section>
+function logoutUser() {
+  localStorage.removeItem("fitflowUsername");
+  localStorage.removeItem("fitflowOnboardingComplete");
+  window.location.href = "login.html";
+}
+</script>
 
-    </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
+
