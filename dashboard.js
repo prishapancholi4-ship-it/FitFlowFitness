@@ -1,38 +1,40 @@
-function initDashboard() {
-  protectUserPage();
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
 
-  const user = getCurrentUserObject();
-  if (!user) {
-    window.location.href = "login.html";
-    return;
-  }
-
-  // Welcome message
-  const welcomeEl = document.getElementById("welcomeMessage");
-  welcomeEl.textContent = `Hi ${user.username}, here’s your snapshot for today.`;
-
-  // Stats
-  updateGlobalUI();
-
-  // Admin button visibility
-  const adminBtn = document.getElementById("adminButton");
-  if (adminBtn) adminBtn.style.display = isAdmin() ? "inline-block" : "none";
-
-  // Sidebar admin link visibility
-  const adminLink = document.getElementById("adminLink");
-  if (adminLink) adminLink.style.display = isAdmin() ? "block" : "none";
-
-  // Burger menu toggle
-  document.getElementById("burgerMenu").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("open");
-  });
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("sidebarOverlay").classList.toggle("active");
 }
 
-function goTo(path) {
-  window.location.href = path;
+function closeSidebar() {
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sidebarOverlay").classList.remove("active");
 }
 
-function handleLogout() {
-  setCurrentUser(null);
-  window.location.href = "login.html";
+/* =========================================================
+   DASHBOARD LOGIC
+   ========================================================= */
+
+// Example progress system — adjust as needed
+let dailyPoints = 0;
+const maxPoints = 100;
+
+function updateProgress() {
+  const bar = document.getElementById("progressBar");
+  const percent = Math.min((dailyPoints / maxPoints) * 100, 100);
+  bar.style.width = percent + "%";
 }
+
+function addPoints(amount = 10) {
+  dailyPoints += amount;
+  updateProgress();
+}
+
+function resetDay() {
+  dailyPoints = 0;
+  updateProgress();
+}
+
+// Initialize on load
+document.addEventListener("DOMContentLoaded", updateProgress);

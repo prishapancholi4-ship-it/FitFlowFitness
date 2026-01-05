@@ -2,51 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Admin Panel</title>
+  <title>Admin • FitFlow</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="admin.js"></script>
 </head>
 
-<body onload="initAdmin()">
+<body class="has-burger admin">
 
-<!-- BURGER MENU -->
-<div id="burgerMenu" class="burger">☰</div>
+  <!-- Burger -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<div id="sidebar" class="sidebar">
-  <button onclick="goTo('dashboard.html')">Dashboard</button>
-  <button onclick="goTo('profile.html')">Profile</button>
-  <button onclick="goTo('admin.html')" id="adminLink">Admin Panel</button>
-  <button onclick="handleLogout()">Logout</button>
-</div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button onclick="location.href='dashboard.html'">Dashboard</button>
+    <button onclick="location.href='journal.html'">Journal</button>
+    <button onclick="location.href='badges.html'">Badges</button>
+    <button onclick="location.href='shop.html'">Shop</button>
 
-<div class="container">
-  <h1 class="gradient-text">FitFlow Admin Panel</h1>
-  <p id="adminWelcome" class="subtext"></p>
-
-  <section class="card">
-    <h2>Management</h2>
-    <div class="button-grid">
-      <button onclick="goTo('admin-users.html')">User Management</button>
-      <button onclick="goTo('admin-all-analytics.html')">Global Analytics</button>
-      <button onclick="goTo('blog-admin.html')">Blog Moderation</button>
+    <div class="menu-section">Admin Tools</div>
+    <div class="admin-only">
+      <button onclick="openNewPostModal()">New Blog Post</button>
+      <button onclick="location.href='manage-users.html'">Manage Users</button>
+      <button onclick="resetAllProgress()">Reset All Progress</button>
     </div>
-  </section>
 
-  <section class="card">
-    <h2>Tools</h2>
-    <div class="button-grid">
-      <button onclick="goTo('admin-challenges.html')">Challenges</button>
-      <button onclick="goTo('admin-levels.html')">Levels</button>
-      <button onclick="goTo('admin-tools.html')">Admin Tools</button>
-      <button onclick="goTo('admin-security.html')">Security</button>
+    <div class="menu-section">Quick Actions</div>
+    <button onclick="addPoints()">Add Points</button>
+    <button onclick="resetDay()">Reset Day</button>
+  </div>
+
+  <!-- Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+  <div class="container">
+    <h1 class="gradient-text">Admin Panel</h1>
+
+    <div class="card">
+      <p class="subtext">Welcome back, admin. All tools are in the menu.</p>
     </div>
-  </section>
-
-  <button class="back-btn" onclick="goBack()">Back</button>
-</div>
-
-<script src="fitflow-global.js"></script>
-<script src="admin.js"></script>
+  </div>
 
 </body>
 </html>

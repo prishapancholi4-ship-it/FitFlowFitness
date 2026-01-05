@@ -1,28 +1,44 @@
-function initAdmin() {
-  protectAdminPage();
+/* =========================================================
+   SIDEBAR TOGGLE
+   ========================================================= */
 
-  const welcome = document.getElementById("adminWelcome");
-  welcome.textContent = "Logged in as admin. Choose a tool to begin.";
-
-  // Admin link always visible
-  const adminLink = document.getElementById("adminLink");
-  if (adminLink) adminLink.style.display = "block";
-
-  // Burger menu toggle
-  document.getElementById("burgerMenu").addEventListener("click", () => {
-    document.getElementById("sidebar").classList.toggle("open");
-  });
+function toggleSidebar() {
+  document.getElementById("sidebar").classList.toggle("open");
+  document.getElementById("sidebarOverlay").classList.toggle("active");
 }
 
-function goTo(path) {
-  window.location.href = path;
+function closeSidebar() {
+  document.getElementById("sidebar").classList.remove("open");
+  document.getElementById("sidebarOverlay").classList.remove("active");
 }
 
-function goBack() {
-  window.location.href = "dashboard.html";
+/* =========================================================
+   ADMIN ACTIONS
+   ========================================================= */
+
+// Open modal for new blog post
+function openNewPostModal() {
+  const modal = document.getElementById("newPostModal");
+  if (modal) modal.style.display = "flex";
 }
 
-function handleLogout() {
-  setCurrentUser(null);
-  window.location.href = "login.html";
+// Close modal
+function closeNewPostModal() {
+  const modal = document.getElementById("newPostModal");
+  if (modal) modal.style.display = "none";
+}
+
+// Example: Reset all user progress
+function resetAllProgress() {
+  alert("All user progress has been reset.");
+}
+
+// Example: Add points (admin override)
+function addPoints(amount = 10) {
+  alert(`Added ${amount} points.`);
+}
+
+// Example: Reset day for all users
+function resetDay() {
+  alert("Daily progress reset for all users.");
 }

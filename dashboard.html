@@ -2,85 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Dashboard</title>
+  <title>Dashboard • FitFlow</title>
   <link rel="stylesheet" href="style.css">
+  <script defer src="dashboard.js"></script>
 </head>
 
-<body onload="initDashboard()">
+<body class="has-burger">
 
-<!-- BURGER MENU -->
-<div id="burgerMenu" class="burger">☰</div>
+  <!-- Burger -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<!-- SIDEBAR -->
-<div id="sidebar" class="sidebar">
-  <button onclick="goTo('dashboard.html')">Dashboard</button>
-  <button onclick="goTo('profile.html')">Profile</button>
-  <button onclick="goTo('admin.html')" id="adminLink">Admin Panel</button>
-  <button onclick="handleLogout()">Logout</button>
-</div>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button onclick="location.href='dashboard.html'">Dashboard</button>
+    <button onclick="location.href='journal.html'">Journal</button>
+    <button onclick="location.href='badges.html'">Badges</button>
+    <button onclick="location.href='shop.html'">Shop</button>
 
-<div class="container">
+    <div class="menu-section">Quick Actions</div>
+    <button onclick="addPoints()">Add Points</button>
+    <button onclick="resetDay()">Reset Day</button>
+  </div>
 
-  <header class="dashboard-header">
-    <h1 class="gradient-text">FitFlow Dashboard</h1>
-    <p class="subtext" id="welcomeMessage"></p>
-  </header>
+  <!-- Overlay for click‑outside close -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
-  <!-- USER STATS -->
-  <section class="card stats-card">
-    <h2>Your Progress</h2>
-    <div class="stats-row">
-      <div class="stat-item">
-        <span class="stat-label">Points</span>
-        <span class="stat-value" id="pointsDisplay">0</span>
+  <div class="container">
+    <h1 class="gradient-text">Your Dashboard</h1>
+
+    <!-- Progress -->
+    <div class="card">
+      <h2>Daily Progress</h2>
+      <div class="progress-bar-outer">
+        <div class="progress-bar-inner" id="progressBar"></div>
       </div>
-      <div class="stat-item">
-        <span class="stat-label">Streak</span>
-        <span class="stat-value" id="streakDisplay">0</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Level</span>
-        <span class="stat-value" id="levelDisplay">1</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-label">Badge</span>
-        <span class="stat-value" id="badgeDisplay">—</span>
-      </div>
+      <p class="subtext">Keep going — you're doing great</p>
     </div>
-  </section>
 
-  <!-- QUICK ACTIONS -->
-  <section class="card">
-    <h2>Quick Actions</h2>
-    <div class="button-grid">
-      <button onclick="goTo('water.html')">Log Water</button>
-      <button onclick="goTo('sleep.html')">Log Sleep</button>
-      <button onclick="goTo('workouts.html')">Log Workout</button>
-      <button onclick="goTo('nutrition.html')">Log Nutrition</button>
-      <button onclick="goTo('journal.html')">Open Journal</button>
-      <button onclick="goTo('blog.html')">Open Blog</button>
-
-      <!-- NEW BUTTONS -->
-      <button onclick="goTo('shop.html')">Shop</button>
-      <button onclick="goTo('badges.html')">Badges</button>
+    <!-- Dashboard Grid -->
+    <div class="dashboard-grid">
+      <button onclick="location.href='journal.html'">Journal</button>
+      <button onclick="location.href='badges.html'">Badges</button>
+      <button onclick="location.href='shop.html'">Shop</button>
+      <button onclick="location.href='nutrition.html'">Nutrition</button>
     </div>
-  </section>
-
-  <!-- ACCOUNT -->
-  <section class="card">
-    <h2>Account</h2>
-    <div class="button-row">
-      <button onclick="goTo('profile.html')">Profile</button>
-      <button onclick="handleLogout()">Log Out</button>
-      <button onclick="goTo('admin.html')" id="adminButton" style="display:none;">Admin Panel</button>
-    </div>
-  </section>
-
-</div>
-
-<script src="fitflow-global.js"></script>
-<script src="dashboard.js"></script>
+  </div>
 
 </body>
 </html>
