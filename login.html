@@ -1,37 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login – FitFlow</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>Login • FitFlow</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body data-page="login">
 
-    <nav class="top-nav">
-        <div class="top-nav-title">Login</div>
-        <div class="top-nav-links">
-            <a href="index.html"><span class="material-icons">home</span><span>Home</span></a>
-            <a href="register.html"><span class="material-icons">person_add</span><span>Register</span></a>
-        </div>
-    </nav>
+<body>
 
-    <div class="auth-container">
-        <h2>Welcome back</h2>
+  <div class="container" style="max-width: 420px; margin-top: 80px;">
 
-        <div class="auth-field">
-            <label>Username</label>
-            <input type="text" id="loginUsername" placeholder="Enter username">
-        </div>
+    <!-- Title -->
+    <h1 class="gradient-text" style="text-align:center;">Login</h1>
+    <p class="subtext" style="text-align:center; margin-bottom: 24px;">Welcome back</p>
 
-        <div class="auth-field">
-            <label>Password</label>
-            <input type="password" id="loginPassword" placeholder="Enter password">
-        </div>
+    <!-- Login Card -->
+    <div class="card">
 
-        <button onclick="loginUser()">Login</button>
+      <label class="field-label">Username</label>
+      <input type="text" placeholder="Enter username">
+
+      <label class="field-label">Password</label>
+      <input type="password" placeholder="Enter password">
+
+      <button class="primary" style="width:100%; margin-top: 12px;">Login</button>
+
     </div>
 
-    <script src="script.js"></script>
+    <!-- Footer Links -->
+    <div style="text-align:center; margin-top: 16px;">
+      <a href="index.html" style="color: var(--blue); font-size: 0.9rem;">Home</a> •
+      <a href="register.html" style="color: var(--pink); font-size: 0.9rem;">Register</a>
+    </div>
+
+  </div>
+
 </body>
 </html>
