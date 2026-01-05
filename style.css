@@ -142,3 +142,6 @@ a {
 a:hover {
   text-decoration: underline;
 }
+body {
+  background: var(--pink) !important;
+}
