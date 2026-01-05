@@ -142,6 +142,78 @@ a {
 a:hover {
   text-decoration: underline;
 }
-body {
-  background: var(--pink) !important;
+/* =========================================================
+   HAMBURGER + SIDE MENU (MATCHES PASTEL THEME)
+   ========================================================= */
+
+/* Hamburger icon */
+.hamburger {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 28px;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  z-index: 1000;
+  color: var(--text-dark);
+}
+
+/* Slide-out menu container */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: -260px; /* hidden by default */
+  width: 260px;
+  height: 100%;
+  background: #ffffff;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.08);
+  padding: var(--space-md);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  transition: left 0.3s ease;
+  z-index: 999;
+}
+
+/* When menu is open */
+.side-menu.open {
+  left: 0;
+}
+
+/* Menu title */
+.menu-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink);
+  margin-bottom: var(--space-md);
+}
+
+/* Section labels */
+.menu-section {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-mid);
+  margin: var(--space-md) 0 var(--space-xs);
+}
+
+/* Buttons inside menu */
+.side-menu button {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: var(--space-xs);
+  border: none;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-soft);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.side-menu button:hover {
+  background: var(--pink);
+  transform: translateY(-1px);
 }
