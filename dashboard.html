@@ -5,7 +5,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard • FitFlow</title>
   <link rel="stylesheet" href="style.css">
+
   <style>
+    /* ---------------- Sidebar + Burger ---------------- */
+
+    .burger {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      font-size: 1.8rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1000;
+      color: var(--slate-700);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 240px;
+      height: 100%;
+      background: white;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: left 0.25s ease;
+      z-index: 999;
+      border-right: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .sidebar.open {
+      left: 0;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar li {
+      margin-bottom: 14px;
+    }
+
+    .sidebar a,
+    .logout-btn {
+      font-size: 1rem;
+      color: var(--slate-700);
+      text-decoration: none;
+      display: block;
+      padding: 6px 0;
+    }
+
+    .sidebar a:hover,
+    .logout-btn:hover {
+      color: var(--blue);
+    }
+
+    .logout-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      width: 100%;
+    }
+
+    /* ---------------- Dashboard Layout ---------------- */
+
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -54,8 +121,40 @@
     }
   </style>
 </head>
+
 <body>
 
+<!-- ⭐ BURGER BUTTON -->
+<button class="burger" onclick="toggleMenu()">☰</button>
+
+<!-- ⭐ SIDEBAR MENU -->
+<nav id="sidebar" class="sidebar">
+  <ul>
+    <li><a href="dashboard.html">Dashboard</a></li>
+    <li><a href="journal.html">Journal</a></li>
+    <li><a href="meditation.html">Meditation</a></li>
+    <li><a href="breathing.html">Breathing</a></li>
+    <li><a href="sleep.html">Sleep</a></li>
+    <li><a href="water.html">Water</a></li>
+    <li><a href="nutrition.html">Nutrition</a></li>
+    <li><a href="workouts.html">Workouts</a></li>
+    <li><a href="activity-log.html">Activity Log</a></li>
+    <li><a href="progress.html">Progress</a></li>
+    <li><a href="rewards.html">Rewards</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="settings.html">Settings</a></li>
+
+    <!-- Admin-only link -->
+    <li id="adminLink" style="display:none;">
+      <a href="admin.html">Admin</a>
+    </li>
+
+    <li><button onclick="logout()" class="logout-btn">Logout</button></li>
+  </ul>
+</nav>
+
+<!-- ⭐ MAIN CONTENT -->
 <div class="container">
 
   <h1 class="gradient-text">Dashboard</h1>
@@ -92,27 +191,38 @@
 
   <section class="card" style="margin-top: var(--space-lg);">
     <div class="section-title">Recent activity</div>
-    <div id="dashboardActivityList">
-      <!-- Your global script.js can populate latest items from your activity log -->
-    </div>
+    <div id="dashboardActivityList"></div>
   </section>
 
 </div>
 
+<!-- ⭐ GLOBAL SCRIPTS -->
 <script src="fitflow-global.js"></script>
 <script src="script.js"></script>
-<script>
-  // Optional: example hooks – align with your existing script.js logic
-  // If you already populate these somewhere, this block can be removed.
-  const points = localStorage.getItem("fitflowPoints") || 0;
-  const level = localStorage.getItem("fitflowLevel") || 1;
-  const streak = localStorage.getItem("fitflowStreak") || 0;
-  const badge = localStorage.getItem("fitflowBadge") || "No badge yet";
 
-  document.getElementById("dashboardPoints").textContent = points;
-  document.getElementById("dashboardLevel").textContent = level;
-  document.getElementById("dashboardStreak").textContent = streak;
-  document.getElementById("dashboardBadge").textContent = badge;
+<!-- ⭐ MENU TOGGLE + ADMIN CHECK -->
+<script>
+function toggleMenu() {
+  document.getElementById("sidebar").classList.toggle("open");
+}
+
+const isAdmin = localStorage.getItem("fitflowRole") === "admin";
+if (isAdmin) {
+  document.getElementById("adminLink").style.display = "block";
+}
+
+// Dashboard stats
+document.getElementById("dashboardPoints").textContent =
+  localStorage.getItem("fitflowPoints") || 0;
+
+document.getElementById("dashboardLevel").textContent =
+  localStorage.getItem("fitflowLevel") || 1;
+
+document.getElementById("dashboardStreak").textContent =
+  localStorage.getItem("fitflowStreak") || 0;
+
+document.getElementById("dashboardBadge").textContent =
+  localStorage.getItem("fitflowBadge") || "No badge yet";
 </script>
 
 </body>
