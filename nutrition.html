@@ -10,25 +10,36 @@
 <body onload="initNutrition()">
 
 <div class="container">
+
   <h1 class="gradient-text">Nutrition Log</h1>
 
-  <section class="card">
-    <label>Food Item</label>
-    <input type="text" id="foodItem" placeholder="e.g., Chicken Bowl">
+  <!-- ADD NUTRITION ENTRY -->
+  <section class="card" style="padding: var(--space-lg);">
+    
+    <label class="field-label">Food Item</label>
+    <input type="text" id="foodItem" class="input" placeholder="e.g., Chicken Bowl">
 
-    <label>Calories</label>
-    <input type="number" id="foodCalories" placeholder="e.g., 600">
+    <label class="field-label">Calories</label>
+    <input type="number" id="foodCalories" class="input" placeholder="e.g., 600">
 
-    <button onclick="addNutrition()">Add Entry</button>
-    <p id="nutritionStatus" class="subtext"></p>
+    <button class="primary" onclick="addNutrition()" style="margin-top: var(--space-md);">
+      Add Entry
+    </button>
+
+    <p id="nutritionStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- RECENT MEALS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Recent Meals</h2>
     <ul id="nutritionList"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

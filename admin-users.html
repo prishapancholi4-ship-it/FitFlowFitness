@@ -10,39 +10,48 @@
 <body onload="initAdminUsers()">
 
 <div class="container">
+
   <h1 class="gradient-text">User Management</h1>
 
-  <section class="card">
+  <!-- ALL USERS -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>All Users</h2>
-    <ul id="userList"></ul>
+    <ul id="userList" class="user-list"></ul>
   </section>
 
-  <section class="card" id="editSection" style="display:none;">
+  <!-- EDIT USER -->
+  <section class="card" id="editSection" style="display:none; padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Edit User</h2>
 
-    <p id="editUserLabel" class="subtext"></p>
+    <p id="editUserLabel" class="subtext" style="margin-bottom: var(--space-md);"></p>
 
-    <label>Points</label>
-    <input type="number" id="editPoints">
+    <label class="field-label">Points</label>
+    <input type="number" id="editPoints" class="input">
 
-    <label>Streak</label>
-    <input type="number" id="editStreak">
+    <label class="field-label">Streak</label>
+    <input type="number" id="editStreak" class="input">
 
-    <label>Level</label>
-    <input type="number" id="editLevel">
+    <label class="field-label">Level</label>
+    <input type="number" id="editLevel" class="input">
 
-    <label>Badge</label>
-    <input type="text" id="editBadge">
+    <label class="field-label">Badge</label>
+    <input type="text" id="editBadge" class="input">
 
-    <button onclick="saveUserEdits()">Save Changes</button>
-    <button onclick="resetUserLogs()">Reset Logs</button>
-    <button onclick="deleteUserAccount()">Delete User</button>
-    <button onclick="cancelEdit()">Cancel</button>
+    <div style="margin-top: var(--space-md); display:flex; flex-wrap:wrap; gap: var(--space-sm);">
+      <button class="primary" onclick="saveUserEdits()">Save Changes</button>
+      <button class="secondary" onclick="resetUserLogs()">Reset Logs</button>
+      <button class="danger" onclick="deleteUserAccount()">Delete User</button>
+      <button class="utility" onclick="cancelEdit()">Cancel</button>
+    </div>
 
-    <p id="editStatus" class="subtext"></p>
+    <p id="editStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

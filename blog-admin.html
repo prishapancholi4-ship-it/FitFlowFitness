@@ -10,14 +10,20 @@
 <body onload="initBlogAdmin()">
 
 <div class="container">
+
   <h1 class="gradient-text">Blog Moderation</h1>
 
-  <section class="card">
+  <!-- ALL POSTS -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>All Posts</h2>
-    <ul id="adminBlogList"></ul>
+    <ul id="adminBlogList" class="blog-list"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

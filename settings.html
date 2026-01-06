@@ -1,4 +1,4 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,28 +8,38 @@
 </head>
 
 <body>
+
 <script>
 if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
   window.location.href = "login.html";
 }
 </script>
 
+<!-- HAMBURGER -->
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 
+<!-- SIDEBAR -->
 <div id="sideMenu" class="side-menu">
   <h2 class="menu-title">FitFlow Menu</h2>
-  <button onclick="location.href='dashboard.html'">Dashboard</button>
-  <button onclick="location.href='settings.html'">Settings</button>
-  <button onclick="logoutUser()">Logout</button>
+
+  <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
+  <button class="secondary" onclick="location.href='settings.html'">Settings</button>
+  <button class="danger" onclick="logoutUser()">Logout</button>
 </div>
 
 <div class="container">
+
   <h1 class="gradient-text">Settings</h1>
 
-  <section class="card">
+  <!-- ACCOUNT SECTION -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Account</h2>
-    <button onclick="logoutUser()">Logout</button>
+
+    <button class="danger" onclick="logoutUser()" style="margin-top: var(--space-md);">
+      Logout
+    </button>
   </section>
+
 </div>
 
 <script src="fitflow-global.js"></script>
@@ -48,4 +58,3 @@ function logoutUser() {
 
 </body>
 </html>
-

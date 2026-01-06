@@ -10,11 +10,13 @@
 <body onload="initGlobalAnalytics()">
 
 <div class="container">
+
   <h1 class="gradient-text">Global Analytics</h1>
 
-  <section class="card">
+  <!-- OVERVIEW -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Overview</h2>
-    <ul>
+    <ul class="analytics-list">
       <li>Total Users: <strong id="totalUsers">0</strong></li>
       <li>Total Points: <strong id="totalPoints">0</strong></li>
       <li>Average Streak: <strong id="avgStreak">0</strong></li>
@@ -22,18 +24,24 @@
     </ul>
   </section>
 
-  <section class="card">
+  <!-- LEADERBOARD -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Leaderboards</h2>
-    <ul id="leaderboard"></ul>
+    <ul id="leaderboard" class="analytics-list"></ul>
   </section>
 
-  <section class="card">
+  <!-- ACTIVITY INSIGHTS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Activity Insights</h2>
     <p>Most Active User: <strong id="mostActive">—</strong></p>
     <p>Least Active User: <strong id="leastActive">—</strong></p>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

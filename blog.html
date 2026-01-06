@@ -10,29 +10,41 @@
 <body onload="initBlog()">
 
 <div class="container">
+
   <h1 class="gradient-text">FitFlow Blog</h1>
 
-  <section class="card">
+  <!-- RECENT POSTS -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Recent Posts</h2>
-    <ul id="blogList"></ul>
+    <ul id="blogList" class="blog-list"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>
 <script src="blog.js"></script>
+
 <!-- ADMIN-ONLY FLOATING BUTTON -->
 <button id="newPostBtn" class="floating-btn" onclick="openPostModal()">+</button>
 
 <!-- CREATE POST MODAL -->
 <div id="postModal" class="modal">
-  <div class="modal-content">
+  <div class="modal-content card" style="padding: var(--space-lg);">
     <h2>Create Post</h2>
-    <textarea id="newPostText" placeholder="Write your post..."></textarea>
-    <button onclick="createPost()">Publish</button>
-    <button onclick="closePostModal()">Cancel</button>
-    <p id="postStatus" class="subtext"></p>
+
+    <textarea id="newPostText" class="input textarea" placeholder="Write your post..."></textarea>
+
+    <div style="margin-top: var(--space-md); display:flex; gap: var(--space-sm);">
+      <button class="primary" onclick="createPost()">Publish</button>
+      <button class="secondary" onclick="closePostModal()">Cancel</button>
+    </div>
+
+    <p id="postStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </div>
 </div>
 

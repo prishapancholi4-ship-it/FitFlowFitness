@@ -10,22 +10,33 @@
 <body onload="initWater()">
 
 <div class="container">
+
   <h1 class="gradient-text">Water Intake</h1>
 
-  <section class="card">
-    <label>Amount (ml)</label>
-    <input type="number" id="waterAmount" placeholder="e.g., 250">
+  <!-- ADD WATER ENTRY -->
+  <section class="card" style="padding: var(--space-lg);">
 
-    <button onclick="addWater()">Add Water</button>
-    <p id="waterStatus" class="subtext"></p>
+    <label class="field-label">Amount (ml)</label>
+    <input type="number" id="waterAmount" class="input" placeholder="e.g., 250">
+
+    <button class="primary" onclick="addWater()" style="margin-top: var(--space-md);">
+      Add Water
+    </button>
+
+    <p id="waterStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- TODAY'S LOGS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Today's Logs</h2>
     <ul id="waterList"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

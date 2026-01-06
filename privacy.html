@@ -15,39 +15,44 @@
 
   <h1 class="gradient-text">Privacy Policy</h1>
 
-  <section class="card">
+  <section class="card" style="padding: var(--space-lg);">
+
     <h2>Your Privacy Matters</h2>
 
     <p>
       FitFlow is designed to be a personal wellness companion. We believe your data should stay
-      in your hands, so FitFlow stores all progress, preferences, and activity logs <strong>locally on your device</strong>.
-      No information is uploaded, transmitted, or shared with external servers.
+      in your hands, so FitFlow stores all progress, preferences, and activity logs
+      <strong>locally on your device</strong>. No information is uploaded, transmitted, or shared with external servers.
     </p>
 
-    <h3 style="margin-top:20px;">What We Store</h3>
-    <ul style="margin-left:20px; margin-top:10px;">
+    <h3 style="margin-top: var(--space-md);">What We Store</h3>
+    <ul class="styled-list">
       <li>Your points, streaks, and level progress</li>
       <li>Your wellness logs (sleep, water, workouts, meals, meditation, affirmations, journal entries)</li>
       <li>Your onboarding status</li>
       <li>Your login state</li>
     </ul>
 
-    <h3 style="margin-top:20px;">What We Do NOT Store</h3>
-    <ul style="margin-left:20px; margin-top:10px;">
+    <h3 style="margin-top: var(--space-md);">What We Do NOT Store</h3>
+    <ul class="styled-list">
       <li>No personal identity data is collected or transmitted</li>
       <li>No analytics or tracking is performed</li>
       <li>No data is shared with third parties</li>
       <li>No cloud storage is used</li>
     </ul>
 
-    <h3 style="margin-top:20px;">Your Control</h3>
+    <h3 style="margin-top: var(--space-md);">Your Control</h3>
     <p>
       You may clear all FitFlow data at any time by logging out or clearing your browser storage.
       This will reset your progress and remove all locally stored information.
     </p>
 
-    <button onclick="agreePrivacy()">I Agree</button>
-    <p id="privacyStatus" class="subtext"></p>
+    <button class="primary" onclick="agreePrivacy()" style="margin-top: var(--space-md);">
+      I Agree
+    </button>
+
+    <p id="privacyStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
+
   </section>
 
 </div>

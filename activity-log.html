@@ -8,29 +8,36 @@
 </head>
 
 <body>
+
 <script>
   if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
     window.location.href = "login.html";
   }
 </script>
 
+<!-- HAMBURGER -->
 <div class="hamburger" onclick="toggleMenu()">☰</div>
 
+<!-- SIDEBAR -->
 <div id="sideMenu" class="side-menu">
   <h2 class="menu-title">FitFlow Menu</h2>
-  <button onclick="location.href='dashboard.html'">Dashboard</button>
-  <button onclick="location.href='activity-log.html'">Activity Log</button>
+  <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
+  <button class="secondary" onclick="location.href='activity-log.html'">Activity Log</button>
 </div>
 
 <div class="container">
+
   <h1 class="gradient-text">Activity Log</h1>
 
-  <section class="card">
+  <!-- ACTIVITY LIST -->
+  <section class="card" style="padding: var(--space-lg);">
     <div id="activityList"></div>
   </section>
+
 </div>
 
 <script src="fitflow-global.js"></script>
+
 <script>
   function toggleMenu() {
     document.getElementById("sideMenu").classList.toggle("open");
@@ -47,12 +54,12 @@
     const container = document.getElementById("activityList");
 
     if (!history.length) {
-      container.innerHTML = "<p>No activity recorded yet.</p>";
+      container.innerHTML = "<p class='subtext'>No activity recorded yet.</p>";
       return;
     }
 
     container.innerHTML = history.map(entry => `
-      <div class="activity-entry">
+      <div class="activity-entry" style="padding: var(--space-md); border-bottom: 1px solid var(--border);">
         <p><strong>${entry.text}</strong></p>
         <p class="subtext">${new Date(entry.timestamp).toLocaleString()}</p>
       </div>

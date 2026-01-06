@@ -8,15 +8,17 @@
 </head>
 
 <body onload="initJournal()">
+
 <div class="container">
 
   <h1 class="gradient-text">Your Journal</h1>
   <p class="subtext">Flip through your entries like a real diary.</p>
 
+  <!-- JOURNAL BOOK WRAPPER -->
   <div class="journal-wrapper">
     <div class="journal-book">
 
-      <!-- Left page -->
+      <!-- LEFT PAGE -->
       <div class="page left-page">
         <div class="page-clipart"></div>
         <div class="page-content">
@@ -29,7 +31,7 @@
         </div>
       </div>
 
-      <!-- Right page -->
+      <!-- RIGHT PAGE -->
       <div class="page right-page">
         <div class="page-clipart"></div>
         <div class="page-content">
@@ -42,29 +44,33 @@
         </div>
       </div>
 
-      <!-- Animated flipping sheet -->
+      <!-- FLIPPING PAGE -->
       <div class="page-flip" id="pageFlip">
         <div class="page-clipart"></div>
         <div class="page-content flip-content"></div>
       </div>
 
-      <!-- Bookmarks -->
+      <!-- BOOKMARKS -->
       <div class="bookmarks">
-        <button class="bookmark" data-section="all">All</button>
-        <button class="bookmark" data-section="daily">Daily</button>
-        <button class="bookmark" data-section="gratitude">Gratitude</button>
-        <button class="bookmark" data-section="mood">Mood</button>
+        <button class="secondary bookmark" data-section="all">All</button>
+        <button class="secondary bookmark" data-section="daily">Daily</button>
+        <button class="secondary bookmark" data-section="gratitude">Gratitude</button>
+        <button class="secondary bookmark" data-section="mood">Mood</button>
       </div>
+
     </div>
   </div>
 
+  <!-- PAGE CONTROLS -->
   <div class="journal-controls">
-    <button class="btn-secondary" onclick="prevPages()">&larr; Previous</button>
-    <button class="btn-primary" onclick="nextPages()">Next &rarr;</button>
+    <button class="secondary" onclick="prevPages()">&larr; Previous</button>
+    <button class="primary" onclick="nextPages()">Next &rarr;</button>
   </div>
 
-  <div class="journal-new-entry">
+  <!-- NEW ENTRY FORM -->
+  <div class="journal-new-entry card" style="margin-top: var(--space-lg); padding: var(--space-lg);">
     <h2>New Entry</h2>
+
     <label class="field-label">Title</label>
     <input type="text" id="entryTitle" class="input" placeholder="Today’s headline">
 
@@ -87,10 +93,13 @@
     <textarea id="entryBody" class="input textarea" rows="5"
       placeholder="Write your thoughts here like a diary..."></textarea>
 
-    <button class="btn-primary" onclick="saveEntry()">Save Entry</button>
+    <button class="primary" onclick="saveEntry()">Save Entry</button>
   </div>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
 
 </div>
 

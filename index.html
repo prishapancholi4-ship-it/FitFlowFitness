@@ -8,33 +8,45 @@
 </head>
 
 <body>
+
   <div class="container">
 
-    <nav class="navbar">
-      <div class="logo">FitFlow</div>
+    <!-- NAVBAR -->
+    <nav class="navbar" style="display:flex; justify-content:space-between; align-items:center; margin-bottom: var(--space-lg);">
+      <div class="logo" style="font-size:1.4rem; font-weight:700; color:var(--pink);">
+        FitFlow
+      </div>
       <div class="nav-links">
-        <a href="login.html">Login</a>
+        <a href="login.html" class="primary" style="padding:8px 16px; border-radius:999px; color:white; text-decoration:none;">
+          Login
+        </a>
       </div>
     </nav>
 
-    <section class="card gradient-box" style="padding:40px; text-align:center;">
-      <h1 style="font-size:2.2rem; margin-bottom:10px;">Welcome to FitFlow</h1>
+    <!-- HERO CARD -->
+    <section class="card gradient-box" style="text-align:center; padding: var(--space-lg); background: var(--pink); color:white;">
+      <h1 class="gradient-text" style="margin-bottom: var(--space-sm);">
+        Welcome to FitFlow
+      </h1>
+
       <p class="subtext" style="color:white; max-width:600px; margin:0 auto;">
         A calm, simple space to build habits, track your wellness, and grow at your own pace.
       </p>
 
-      <button onclick="window.location.href='login.html'" style="margin-top:25px;">
+      <button class="primary" onclick="window.location.href='login.html'" style="margin-top: var(--space-md);">
         Get Started
       </button>
     </section>
 
-    <section class="card" style="padding:30px; margin-top:30px;">
+    <!-- DAILY FLOW -->
+    <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
       <h2>Your Daily Flow</h2>
-      <p class="subtext" style="margin-bottom:20px;">
+
+      <p class="subtext" style="margin-bottom: var(--space-md);">
         FitFlow helps you stay consistent with gentle structure and beautiful design.
       </p>
 
-      <ul style="list-style:none; padding-left:0; line-height:1.8;">
+      <ul style="list-style:none; padding-left:0; line-height:1.8; color:var(--text-mid);">
         <li>• Track your habits and wellness routines</li>
         <li>• Earn points and level up through 50 stages</li>
         <li>• Build streaks and unlock badges</li>
@@ -42,12 +54,15 @@
       </ul>
     </section>
 
-    <section class="card" style="padding:30px; margin-top:20px;">
+    <!-- READY SECTION -->
+    <section class="card" style="padding: var(--space-lg); margin-top: var(--space-md);">
       <h2>Ready When You Are</h2>
-      <p class="subtext">
+
+      <p class="subtext" style="margin-bottom: var(--space-md);">
         No pressure. No noise. Just a clean, supportive space to grow.
       </p>
-      <button onclick="window.location.href='login.html'" style="margin-top:15px;">
+
+      <button class="secondary" onclick="window.location.href='login.html'">
         Start Your Journey
       </button>
     </section>

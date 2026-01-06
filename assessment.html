@@ -32,22 +32,22 @@
 
   <h1 class="gradient-text">Quick Assessment</h1>
 
-  <section class="card">
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Tell Us About You</h2>
 
-    <label>Your Main Goal</label>
-    <input type="text" id="goalInput" placeholder="Get stronger, lose weight, feel better...">
+    <label class="field-label">Your Main Goal</label>
+    <input type="text" id="goalInput" class="input" placeholder="Get stronger, lose weight, feel better...">
 
-    <label>Your Experience Level</label>
-    <select id="experienceInput" style="width:100%; padding:12px; margin-top:6px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; background:#fafafa;">
+    <label class="field-label">Your Experience Level</label>
+    <select id="experienceInput" class="input" style="margin-bottom: var(--space-md);">
       <option value="">Select one</option>
       <option value="beginner">Beginner</option>
       <option value="intermediate">Intermediate</option>
       <option value="advanced">Advanced</option>
     </select>
 
-    <label>Your Preferred Focus</label>
-    <select id="focusInput" style="width:100%; padding:12px; margin-top:6px; margin-bottom:15px; border-radius:10px; border:1px solid #ddd; background:#fafafa;">
+    <label class="field-label">Your Preferred Focus</label>
+    <select id="focusInput" class="input" style="margin-bottom: var(--space-md);">
       <option value="">Select one</option>
       <option value="strength">Strength</option>
       <option value="mobility">Mobility</option>
@@ -55,8 +55,11 @@
       <option value="wellness">Wellness & Mindfulness</option>
     </select>
 
-    <button onclick="completeAssessment()">Continue</button>
-    <p id="assessmentStatus" class="subtext"></p>
+    <button class="primary" onclick="completeAssessment()" style="margin-top: var(--space-md);">
+      Continue
+    </button>
+
+    <p id="assessmentStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
 </div>

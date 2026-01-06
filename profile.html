@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 <script>
   if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
     window.location.href = "login.html";
@@ -16,13 +17,15 @@
 
 <div class="container">
 
-  <div style="text-align:center; margin-bottom:30px;">
+  <!-- Logo -->
+  <div style="text-align:center; margin-bottom: var(--space-lg);">
     <img src="fitflow-logo.png" alt="FitFlow logo" style="width:160px; max-width:100%;">
   </div>
 
   <h1 class="gradient-text">Your Profile</h1>
 
-  <section class="card">
+  <!-- ACCOUNT DETAILS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-md);">
     <h2>Account Details</h2>
     <p>Email: <span id="profileEmail"></span></p>
     <p>Level: <span id="levelDisplay"></span></p>
@@ -31,9 +34,11 @@
     <p>Badge: <span id="badgeDisplay"></span></p>
   </section>
 
-  <section class="card">
+  <!-- PROGRESS BAR -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Progress</h2>
-    <div class="progress-track">
+
+    <div class="progress-track" style="margin-top: var(--space-md);">
       <div id="levelProgressBar"></div>
     </div>
   </section>

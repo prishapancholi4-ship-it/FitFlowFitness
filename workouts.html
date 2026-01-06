@@ -10,25 +10,36 @@
 <body onload="initWorkouts()">
 
 <div class="container">
+
   <h1 class="gradient-text">Workout Log</h1>
 
-  <section class="card">
-    <label>Workout Type</label>
-    <input type="text" id="workoutType" placeholder="e.g., Push Day">
+  <!-- ADD WORKOUT ENTRY -->
+  <section class="card" style="padding: var(--space-lg);">
 
-    <label>Duration (minutes)</label>
-    <input type="number" id="workoutDuration" placeholder="e.g., 45">
+    <label class="field-label">Workout Type</label>
+    <input type="text" id="workoutType" class="input" placeholder="e.g., Push Day">
 
-    <button onclick="addWorkout()">Add Workout</button>
-    <p id="workoutStatus" class="subtext"></p>
+    <label class="field-label">Duration (minutes)</label>
+    <input type="number" id="workoutDuration" class="input" placeholder="e.g., 45">
+
+    <button class="primary" onclick="addWorkout()" style="margin-top: var(--space-md);">
+      Add Workout
+    </button>
+
+    <p id="workoutStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- RECENT WORKOUTS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Recent Workouts</h2>
     <ul id="workoutList"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

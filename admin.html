@@ -14,21 +14,23 @@
 
   <!-- Sidebar -->
   <div class="sidebar" id="sidebar">
-    <button onclick="location.href='dashboard.html'">Dashboard</button>
-    <button onclick="location.href='journal.html'">Journal</button>
-    <button onclick="location.href='badges.html'">Badges</button>
-    <button onclick="location.href='shop.html'">Shop</button>
+
+    <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
+    <button class="secondary" onclick="location.href='journal.html'">Journal</button>
+    <button class="secondary" onclick="location.href='badges.html'">Badges</button>
+    <button class="secondary" onclick="location.href='shop.html'">Shop</button>
 
     <div class="menu-section">Admin Tools</div>
     <div class="admin-only">
-      <button onclick="openNewPostModal()">New Blog Post</button>
-      <button onclick="location.href='manage-users.html'">Manage Users</button>
-      <button onclick="resetAllProgress()">Reset All Progress</button>
+      <button class="primary" onclick="openNewPostModal()">New Blog Post</button>
+      <button class="secondary" onclick="location.href='manage-users.html'">Manage Users</button>
+      <button class="danger" onclick="resetAllProgress()">Reset All Progress</button>
     </div>
 
     <div class="menu-section">Quick Actions</div>
-    <button onclick="addPoints()">Add Points</button>
-    <button onclick="resetDay()">Reset Day</button>
+    <button class="secondary" onclick="addPoints()">Add Points</button>
+    <button class="secondary" onclick="resetDay()">Reset Day</button>
+
   </div>
 
   <!-- Overlay -->
@@ -37,7 +39,7 @@
   <div class="container">
     <h1 class="gradient-text">Admin Panel</h1>
 
-    <div class="card">
+    <div class="card" style="padding: var(--space-lg);">
       <p class="subtext">Welcome back, admin. All tools are in the menu.</p>
     </div>
   </div>

@@ -10,27 +10,34 @@
 <body>
 
 <div class="container">
+
   <h1 class="gradient-text">Create Your Account</h1>
 
-  <section class="card">
-    <label>Username</label>
-    <input type="text" id="username">
+  <!-- SIGNUP FORM -->
+  <section class="card" style="padding: var(--space-lg);">
 
-    <label>Password</label>
-    <input type="password" id="password">
+    <label class="field-label">Username</label>
+    <input type="text" id="username" class="input">
 
-    <label>Confirm Password</label>
-    <input type="password" id="confirmPassword">
+    <label class="field-label">Password</label>
+    <input type="password" id="password" class="input">
 
-    <button onclick="handleSignup()">Sign Up</button>
+    <label class="field-label">Confirm Password</label>
+    <input type="password" id="confirmPassword" class="input">
 
-    <p id="signupStatus" class="subtext"></p>
+    <button class="primary" onclick="handleSignup()" style="margin-top: var(--space-md);">
+      Sign Up
+    </button>
 
-    <p class="subtext">
+    <p id="signupStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
+
+    <p class="subtext" style="margin-top: var(--space-md);">
       Already have an account?
       <a href="login.html">Log in</a>
     </p>
+
   </section>
+
 </div>
 
 <script src="fitflow-global.js"></script>

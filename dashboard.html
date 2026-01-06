@@ -9,43 +9,49 @@
 
 <body class="has-burger">
 
-  <!-- Burger -->
-  <div class="burger" onclick="toggleSidebar()">☰</div>
+  <!-- Hamburger -->
+  <div class="hamburger" onclick="toggleSidebar()">☰</div>
 
   <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-    <button onclick="location.href='dashboard.html'">Dashboard</button>
-    <button onclick="location.href='journal.html'">Journal</button>
-    <button onclick="location.href='badges.html'">Badges</button>
-    <button onclick="location.href='shop.html'">Shop</button>
+  <div class="side-menu" id="sidebar">
+    <div class="menu-title">Menu</div>
+
+    <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
+    <button class="secondary" onclick="location.href='journal.html'">Journal</button>
+    <button class="secondary" onclick="location.href='badges.html'">Badges</button>
+    <button class="secondary" onclick="location.href='shop.html'">Shop</button>
 
     <div class="menu-section">Quick Actions</div>
-    <button onclick="addPoints()">Add Points</button>
-    <button onclick="resetDay()">Reset Day</button>
+    <button class="utility" onclick="addPoints()">Add Points</button>
+    <button class="utility" onclick="resetDay()">Reset Day</button>
   </div>
 
-  <!-- Overlay for click‑outside close -->
+  <!-- Overlay -->
   <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
   <div class="container">
+
     <h1 class="gradient-text">Your Dashboard</h1>
 
-    <!-- Progress -->
+    <!-- Progress Card -->
     <div class="card">
       <h2>Daily Progress</h2>
+
       <div class="progress-bar-outer">
         <div class="progress-bar-inner" id="progressBar"></div>
       </div>
+
       <p class="subtext">Keep going — you're doing great</p>
     </div>
 
     <!-- Dashboard Grid -->
     <div class="dashboard-grid">
-      <button onclick="location.href='journal.html'">Journal</button>
-      <button onclick="location.href='badges.html'">Badges</button>
-      <button onclick="location.href='shop.html'">Shop</button>
-      <button onclick="location.href='nutrition.html'">Nutrition</button>
+      <button class="primary" onclick="location.href='journal.html'">Journal</button>
+      <button class="primary" onclick="location.href='badges.html'">Badges</button>
+      <button class="primary" onclick="location.href='shop.html'">Shop</button>
+      <button class="primary" onclick="location.href='nutrition.html'">Nutrition</button>
     </div>
+
   </div>
 
 </body>

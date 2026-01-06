@@ -15,7 +15,8 @@
 
   <h1 class="gradient-text">Terms of Service</h1>
 
-  <section class="card">
+  <section class="card" style="padding: var(--space-lg);">
+
     <h2>Using FitFlow Responsibly</h2>
 
     <p>
@@ -24,29 +25,33 @@
       It is not a medical device and should not be used as a substitute for professional health advice.
     </p>
 
-    <h3 style="margin-top:20px;">Your Responsibilities</h3>
-    <ul style="margin-left:20px; margin-top:10px;">
+    <h3 style="margin-top: var(--space-md);">Your Responsibilities</h3>
+    <ul class="styled-list">
       <li>You will provide accurate information when logging wellness activities</li>
       <li>You will use FitFlow for personal, non-commercial purposes</li>
       <li>You understand that all progress is stored locally on your device</li>
       <li>You are responsible for maintaining access to your device</li>
     </ul>
 
-    <h3 style="margin-top:20px;">Limitations</h3>
-    <ul style="margin-left:20px; margin-top:10px;">
+    <h3 style="margin-top: var(--space-md);">Limitations</h3>
+    <ul class="styled-list">
       <li>FitFlow does not guarantee specific health outcomes</li>
       <li>FitFlow is not liable for data loss caused by device resets or browser clearing</li>
       <li>FitFlow does not collect or store your data externally</li>
     </ul>
 
-    <h3 style="margin-top:20px;">Agreement</h3>
+    <h3 style="margin-top: var(--space-md);">Agreement</h3>
     <p>
       By selecting “I Agree,” you confirm that you have read and understood these terms and
       consent to using FitFlow under these conditions.
     </p>
 
-    <button onclick="agreeTerms()">I Agree</button>
-    <p id="termsStatus" class="subtext"></p>
+    <button class="primary" onclick="agreeTerms()" style="margin-top: var(--space-md);">
+      I Agree
+    </button>
+
+    <p id="termsStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
+
   </section>
 
 </div>

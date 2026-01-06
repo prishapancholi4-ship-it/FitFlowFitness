@@ -10,22 +10,34 @@
 <body onload="initAdminChallenges()">
 
 <div class="container">
+
   <h1 class="gradient-text">Challenge Manager</h1>
 
-  <section class="card">
+  <!-- CREATE CHALLENGE -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Create Challenge</h2>
-    <input type="text" id="challengeName" placeholder="Challenge name">
-    <input type="number" id="challengePoints" placeholder="Points reward">
-    <button onclick="addChallenge()">Add Challenge</button>
-    <p id="challengeStatus" class="subtext"></p>
+
+    <input type="text" id="challengeName" class="input" placeholder="Challenge name">
+    <input type="number" id="challengePoints" class="input" placeholder="Points reward">
+
+    <button class="primary" onclick="addChallenge()" style="margin-top: var(--space-md);">
+      Add Challenge
+    </button>
+
+    <p id="challengeStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- EXISTING CHALLENGES -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Existing Challenges</h2>
     <ul id="challengeList"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

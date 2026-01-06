@@ -23,35 +23,40 @@ if (localStorage.getItem("fitflowUsername") !== "admin") {
 <div id="sideMenu" class="side-menu">
   <h2 class="menu-title">FitFlow Admin</h2>
 
-  <button onclick="location.href='dashboard.html'">Back to Dashboard</button>
-  <button onclick="location.href='admin.html'">Back to Admin Dashboard</button>
-  <button onclick="logoutUser()">Logout</button>
+  <button class="secondary" onclick="location.href='dashboard.html'">Back to Dashboard</button>
+  <button class="secondary" onclick="location.href='admin.html'">Back to Admin Dashboard</button>
+  <button class="danger" onclick="logoutUser()">Logout</button>
 </div>
 
 <div class="container">
+
   <h1 class="gradient-text">Analytics</h1>
 
-  <section class="card">
+  <!-- USER ACTIVITY -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>User Activity</h2>
     <p><strong>Total Points:</strong> <span id="pointsDisplay"></span></p>
     <p><strong>Total Streak:</strong> <span id="streakDisplay"></span></p>
     <p><strong>Level:</strong> <span id="levelDisplay"></span></p>
   </section>
 
-  <section class="card">
+  <!-- ENGAGEMENT -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Engagement Stats</h2>
     <p><strong>Journal Entries:</strong> <span id="journalCount"></span></p>
     <p><strong>Blog Posts:</strong> <span id="blogCount"></span></p>
     <p><strong>Blog Comments:</strong> <span id="commentCount"></span></p>
   </section>
 
-  <section class="card">
+  <!-- WELLNESS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Wellness Tracking</h2>
     <p><strong>Water Logs:</strong> <span id="waterCount"></span></p>
     <p><strong>Sleep Logs:</strong> <span id="sleepCount"></span></p>
     <p><strong>Workout Logs:</strong> <span id="workoutCount"></span></p>
     <p><strong>Nutrition Logs:</strong> <span id="nutritionCount"></span></p>
   </section>
+
 </div>
 
 <script src="fitflow-global.js"></script>
@@ -70,7 +75,6 @@ function logoutUser() {
 document.addEventListener("DOMContentLoaded", () => {
   updateGlobalUI();
 
-  // Load analytics
   const journal = JSON.parse(localStorage.getItem("fitflowJournal")) || [];
   const posts = JSON.parse(localStorage.getItem("fitflowBlogPosts")) || [];
   const water = JSON.parse(localStorage.getItem("fitflowWaterLogs")) || [];

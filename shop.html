@@ -10,15 +10,21 @@
 <body onload="initShop()">
 
 <div class="container">
+
   <h1 class="gradient-text">Badge Shop</h1>
   <p class="subtext">Spend your points to collect badges!</p>
 
-  <section class="card">
+  <!-- BADGE SHOP CARD -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Available Badges</h2>
     <div id="shopList" class="badge-grid"></div>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

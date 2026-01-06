@@ -10,15 +10,21 @@
 <body onload="initBadges()">
 
 <div class="container">
+
   <h1 class="gradient-text">Your Badges</h1>
   <p class="subtext">Collect badges from the Shop to fill your gallery.</p>
 
-  <section class="card">
+  <!-- OWNED BADGES CARD -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Owned Badges</h2>
     <div id="badgeGrid" class="badge-grid"></div>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

@@ -8,6 +8,7 @@
 </head>
 
 <body>
+
 <script>
   if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
     window.location.href = "login.html";
@@ -15,47 +16,45 @@
 </script>
 
 <!-- HAMBURGER MENU -->
-<div class="hamburger" onclick="toggleMenu()">
-  ☰
-</div>
+<div class="hamburger" onclick="toggleMenu()">☰</div>
 
 <!-- SLIDE-OUT MENU -->
 <div id="sideMenu" class="side-menu">
 
   <h2 class="menu-title">FitFlow Menu</h2>
 
-  <button onclick="location.href='dashboard.html'">Dashboard</button>
+  <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
 
   <h3 class="menu-section">Wellness</h3>
-  <button onclick="location.href='sleep.html'">Sleep</button>
-  <button onclick="location.href='water.html'">Water</button>
-  <button onclick="location.href='nutrition.html'">Nutrition</button>
-  <button onclick="location.href='workouts.html'">Workouts</button>
-  <button onclick="location.href='activity-log.html'">Activity Log</button>
+  <button class="secondary" onclick="location.href='sleep.html'">Sleep</button>
+  <button class="secondary" onclick="location.href='water.html'">Water</button>
+  <button class="secondary" onclick="location.href='nutrition.html'">Nutrition</button>
+  <button class="secondary" onclick="location.href='workouts.html'">Workouts</button>
+  <button class="secondary" onclick="location.href='activity-log.html'">Activity Log</button>
 
   <h3 class="menu-section">Mindfulness</h3>
-  <button onclick="location.href='meditation.html'">Meditation</button>
-  <button onclick="location.href='breathing.html'">Breathing</button>
-  <button onclick="location.href='affirmations.html'">Affirmations</button>
-  <button onclick="location.href='journal.html'">Journal</button>
+  <button class="secondary" onclick="location.href='meditation.html'">Meditation</button>
+  <button class="secondary" onclick="location.href='breathing.html'">Breathing</button>
+  <button class="secondary" onclick="location.href='affirmations.html'">Affirmations</button>
+  <button class="secondary" onclick="location.href='journal.html'">Journal</button>
 
   <h3 class="menu-section">Progress</h3>
-  <button onclick="location.href='profile.html'">Profile</button>
-  <button onclick="location.href='goals.html'">Goals</button>
-  <button onclick="location.href='badges.html'">Badges</button>
-  <button onclick="location.href='weekly-summary.html'">Weekly Summary</button>
+  <button class="secondary" onclick="location.href='profile.html'">Profile</button>
+  <button class="secondary" onclick="location.href='goals.html'">Goals</button>
+  <button class="secondary" onclick="location.href='badges.html'">Badges</button>
+  <button class="secondary" onclick="location.href='weekly-summary.html'">Weekly Summary</button>
 
   <h3 class="menu-section">Extras</h3>
-  <button onclick="location.href='challenges.html'">Challenges</button>
-  <button onclick="location.href='shop.html'">Shop</button>
-  <button onclick="location.href='blog.html'">Blog</button>
-  <button onclick="location.href='settings.html'">Settings</button>
+  <button class="secondary" onclick="location.href='challenges.html'">Challenges</button>
+  <button class="secondary" onclick="location.href='shop.html'">Shop</button>
+  <button class="secondary" onclick="location.href='blog.html'">Blog</button>
+  <button class="secondary" onclick="location.href='settings.html'">Settings</button>
 
   <h3 class="menu-section">Account</h3>
-  <button onclick="logoutUser()">Logout</button>
+  <button class="danger" onclick="logoutUser()">Logout</button>
 
   <h3 class="menu-section">Admin</h3>
-  <button onclick="location.href='admin.html'">Admin Dashboard</button>
+  <button class="secondary" onclick="location.href='admin.html'">Admin Dashboard</button>
 
 </div>
 
@@ -63,14 +62,18 @@
 
   <h1 class="gradient-text">Meditation</h1>
 
-  <section class="card">
+  <!-- START SESSION -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Start a Session</h2>
 
-    <label>Minutes</label>
-    <input type="number" id="medMinutes" min="1">
+    <label class="field-label">Minutes</label>
+    <input type="number" id="medMinutes" min="1" class="input">
 
-    <button onclick="logMeditation()">Begin</button>
-    <p id="medStatus" class="subtext"></p>
+    <button class="primary" onclick="logMeditation()" style="margin-top: var(--space-md);">
+      Begin
+    </button>
+
+    <p id="medStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
 </div>
@@ -80,8 +83,7 @@
 
 <script>
   function toggleMenu() {
-    const menu = document.getElementById("sideMenu");
-    menu.classList.toggle("open");
+    document.getElementById("sideMenu").classList.toggle("open");
   }
 
   function logMeditation() {

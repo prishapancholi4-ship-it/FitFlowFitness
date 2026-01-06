@@ -10,16 +10,24 @@
 <body onload="initAdminSecurity()">
 
 <div class="container">
+
   <h1 class="gradient-text">Admin Security</h1>
 
-  <section class="card">
+  <!-- SECURITY ACTIONS -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Security Actions</h2>
-    <button onclick="forceLogoutAll()">Force Logout All Users</button>
-    <button onclick="resetAdminPassword()">Reset Admin Password</button>
-    <p id="securityStatus" class="subtext"></p>
+
+    <button class="primary" onclick="forceLogoutAll()">Force Logout All Users</button>
+    <button class="primary" onclick="resetAdminPassword()">Reset Admin Password</button>
+
+    <p id="securityStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

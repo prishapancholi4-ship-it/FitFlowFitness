@@ -8,8 +8,10 @@
 </head>
 
 <body>
+
 <div class="container">
 
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="logo">FitFlow</div>
     <div class="nav-links">
@@ -17,24 +19,28 @@
     </div>
   </nav>
 
-  <h1>Challenges</h1>
+  <h1 class="gradient-text">Challenges</h1>
   <p class="subtext">Join simple quests to boost your progress.</p>
 
-  <section class="card gradient-box" style="padding:25px; max-width:700px; margin:0 auto;">
+  <!-- WEEKLY CHALLENGE -->
+  <section class="card gradient-box" style="padding: var(--space-lg); max-width: 700px; margin: 0 auto;">
     <h2>This Week’s Challenge</h2>
+
     <p class="subtext" id="currentChallengeText">
       Walk or move for at least 20 minutes on 3 different days this week.
     </p>
 
-    <button style="margin-top:15px;" onclick="completeChallenge()">
+    <button class="primary" style="margin-top: var(--space-md);" onclick="completeChallenge()">
       Mark Challenge Complete
     </button>
-    <p id="challengeStatus" class="subtext" style="margin-top:10px;"></p>
+
+    <p id="challengeStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
 </div>
 
 <script src="fitflow-global.js"></script>
+
 <script>
 (function() {
   if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {

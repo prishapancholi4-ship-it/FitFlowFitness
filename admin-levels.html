@@ -10,22 +10,34 @@
 <body onload="initAdminLevels()">
 
 <div class="container">
+
   <h1 class="gradient-text">Level Manager</h1>
 
-  <section class="card">
+  <!-- CREATE LEVEL -->
+  <section class="card" style="padding: var(--space-lg);">
     <h2>Create Level</h2>
-    <input type="number" id="levelNumber" placeholder="Level number">
-    <input type="number" id="levelPoints" placeholder="Points required">
-    <button onclick="addLevel()">Add Level</button>
-    <p id="levelStatus" class="subtext"></p>
+
+    <input type="number" id="levelNumber" class="input" placeholder="Level number">
+    <input type="number" id="levelPoints" class="input" placeholder="Points required">
+
+    <button class="primary" onclick="addLevel()" style="margin-top: var(--space-md);">
+      Add Level
+    </button>
+
+    <p id="levelStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- EXISTING LEVELS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Existing Levels</h2>
-    <ul id="levelList"></ul>
+    <ul id="levelList" class="level-list"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

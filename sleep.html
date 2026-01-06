@@ -10,22 +10,33 @@
 <body onload="initSleep()">
 
 <div class="container">
+
   <h1 class="gradient-text">Sleep Tracker</h1>
 
-  <section class="card">
-    <label>Hours Slept</label>
-    <input type="number" id="sleepHours" placeholder="e.g., 7.5">
+  <!-- ADD SLEEP ENTRY -->
+  <section class="card" style="padding: var(--space-lg);">
 
-    <button onclick="addSleep()">Add Sleep</button>
-    <p id="sleepStatus" class="subtext"></p>
+    <label class="field-label">Hours Slept</label>
+    <input type="number" id="sleepHours" class="input" placeholder="e.g., 7.5">
+
+    <button class="primary" onclick="addSleep()" style="margin-top: var(--space-md);">
+      Add Sleep
+    </button>
+
+    <p id="sleepStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
   </section>
 
-  <section class="card">
+  <!-- RECENT SLEEP LOGS -->
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
     <h2>Recent Sleep Logs</h2>
     <ul id="sleepList"></ul>
   </section>
 
-  <button class="back-btn" onclick="goBack()">Back</button>
+  <!-- BACK BUTTON -->
+  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
+    Back
+  </button>
+
 </div>
 
 <script src="fitflow-global.js"></script>

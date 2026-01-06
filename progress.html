@@ -8,32 +8,35 @@
 </head>
 
 <body>
-  <script>
-    if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
-      window.location.href = "login.html";
-    }
-  </script>
 
-  <div class="container">
+<script>
+  if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
+    window.location.href = "login.html";
+  }
+</script>
 
-    <h1 class="gradient-text">Your Progress</h1>
+<div class="container">
 
-    <section class="card">
-      <h2>Level Overview</h2>
-      <p id="levelInfo"></p>
+  <h1 class="gradient-text">Your Progress</h1>
 
-      <div class="progress-track">
-        <div id="levelProgressBar"></div>
-      </div>
+  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-md);">
+    <h2>Level Overview</h2>
 
-      <p>Points: <span id="pointsDisplay"></span></p>
-      <p>Streak: <span id="streakDisplay"></span></p>
-      <p>Badge: <span id="badgeDisplay"></span></p>
-    </section>
+    <p id="levelInfo"></p>
 
-  </div>
+    <div class="progress-track" style="margin-top: var(--space-md);">
+      <div id="levelProgressBar"></div>
+    </div>
 
-  <script src="fitflow-global.js"></script>
-  <script src="script.js"></script>
+    <p style="margin-top: var(--space-md);">Points: <span id="pointsDisplay"></span></p>
+    <p>Streak: <span id="streakDisplay"></span></p>
+    <p>Badge: <span id="badgeDisplay"></span></p>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+
 </body>
 </html>
