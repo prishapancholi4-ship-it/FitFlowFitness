@@ -1,32 +1,22 @@
 function handleLogin() {
-  const username = document.getElementById("username").value.trim().toLowerCase();
-  const password = document.getElementById("password").value.trim();
+  const username = document.getElementById("loginUsername").value.trim();
+  const password = document.getElementById("loginPassword").value.trim();
   const status = document.getElementById("loginStatus");
 
+  const savedUser = localStorage.getItem("fitflowUsername");
+  const savedPass = localStorage.getItem("fitflowPassword");
+
   if (!username || !password) {
-    status.textContent = "Please enter your username and password.";
+    status.textContent = "Enter both fields.";
     return;
   }
 
-  const user = findUser(username);
-
-  if (!user) {
-    status.textContent = "User not found.";
-    return;
+  if (username === savedUser && password === savedPass) {
+    localStorage.setItem("fitflowLoggedIn", "true");
+    status.textContent = "Logging in...";
+    setTimeout(() => window.location.href = "privacy.html", 400);
+  } else {
+    status.textContent = "Incorrect username or password.";
   }
-
-  if (user.password !== password) {
-    status.textContent = "Incorrect password.";
-    return;
-  }
-
-  // Set current user
-  setCurrentUser(username);
-
-  // Save last active timestamp
-  user.lastActive = new Date().toISOString();
-  updateUser(user);
-
-  // Redirect to onboarding flow
-  window.location.href = "privacy.html";
 }
+
