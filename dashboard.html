@@ -2,57 +2,118 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard • FitFlow</title>
   <link rel="stylesheet" href="style.css">
-  <script defer src="dashboard.js"></script>
+  <style>
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-lg);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      color: var(--muted, #6b7280);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .stat-value {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+
+    .substat {
+      font-size: 0.9rem;
+      color: var(--muted, #6b7280);
+      margin-top: 6px;
+    }
+
+    .section-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .activity-item {
+      font-size: 0.9rem;
+      padding: 6px 0;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
+    }
+
+    .activity-item:last-child {
+      border-bottom: none;
+    }
+
+    .activity-meta {
+      font-size: 0.75rem;
+      color: var(--muted, #6b7280);
+    }
+  </style>
 </head>
+<body>
 
-<body class="has-burger">
+<div class="container">
 
-  <!-- Hamburger -->
-  <div class="hamburger" onclick="toggleSidebar()">☰</div>
+  <h1 class="gradient-text">Dashboard</h1>
+  <p class="subtext">Your gentle overview. Use the menu for everything else.</p>
 
-  <!-- Sidebar -->
-  <div class="side-menu" id="sidebar">
-    <div class="menu-title">Menu</div>
+  <section class="dashboard-grid">
 
-    <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
-    <button class="secondary" onclick="location.href='journal.html'">Journal</button>
-    <button class="secondary" onclick="location.href='badges.html'">Badges</button>
-    <button class="secondary" onclick="location.href='shop.html'">Shop</button>
-
-    <div class="menu-section">Quick Actions</div>
-    <button class="utility" onclick="addPoints()">Add Points</button>
-    <button class="utility" onclick="resetDay()">Reset Day</button>
-  </div>
-
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
-
-  <div class="container">
-
-    <h1 class="gradient-text">Your Dashboard</h1>
-
-    <!-- Progress Card -->
     <div class="card">
-      <h2>Daily Progress</h2>
-
-      <div class="progress-bar-outer">
-        <div class="progress-bar-inner" id="progressBar"></div>
-      </div>
-
-      <p class="subtext">Keep going — you're doing great</p>
+      <div class="stat-label">Points</div>
+      <div class="stat-value" id="dashboardPoints">0</div>
+      <div class="substat">Keep moving, every action counts.</div>
     </div>
 
-    <!-- Dashboard Grid -->
-    <div class="dashboard-grid">
-      <button class="primary" onclick="location.href='journal.html'">Journal</button>
-      <button class="primary" onclick="location.href='badges.html'">Badges</button>
-      <button class="primary" onclick="location.href='shop.html'">Shop</button>
-      <button class="primary" onclick="location.href='nutrition.html'">Nutrition</button>
+    <div class="card">
+      <div class="stat-label">Level</div>
+      <div class="stat-value" id="dashboardLevel">1</div>
+      <div class="substat" id="dashboardBadge">No badge yet</div>
     </div>
 
-  </div>
+    <div class="card">
+      <div class="stat-label">Streak</div>
+      <div class="stat-value" id="dashboardStreak">0</div>
+      <div class="substat">Days in a row showing up for yourself.</div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">This week at a glance</div>
+      <p class="substat" id="dashboardWeekSummary">
+        Your sleep, movement, and mindfulness summary will appear here.
+      </p>
+    </div>
+
+  </section>
+
+  <section class="card" style="margin-top: var(--space-lg);">
+    <div class="section-title">Recent activity</div>
+    <div id="dashboardActivityList">
+      <!-- Your global script.js can populate latest items from your activity log -->
+    </div>
+  </section>
+
+</div>
+
+<script src="fitflow-global.js"></script>
+<script src="script.js"></script>
+<script>
+  // Optional: example hooks – align with your existing script.js logic
+  // If you already populate these somewhere, this block can be removed.
+  const points = localStorage.getItem("fitflowPoints") || 0;
+  const level = localStorage.getItem("fitflowLevel") || 1;
+  const streak = localStorage.getItem("fitflowStreak") || 0;
+  const badge = localStorage.getItem("fitflowBadge") || "No badge yet";
+
+  document.getElementById("dashboardPoints").textContent = points;
+  document.getElementById("dashboardLevel").textContent = level;
+  document.getElementById("dashboardStreak").textContent = streak;
+  document.getElementById("dashboardBadge").textContent = badge;
+</script>
 
 </body>
 </html>
