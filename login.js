@@ -14,9 +14,8 @@ function handleLogin() {
   if (username === savedUser && password === savedPass) {
     localStorage.setItem("fitflowLoggedIn", "true");
     status.textContent = "Logging in...";
-    setTimeout(() => window.location.href = "privacy.html", 400);
+    setTimeout(() => window.location.href = "privacy.html", 500);
   } else {
     status.textContent = "Incorrect username or password.";
   }
 }
-

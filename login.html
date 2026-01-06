@@ -2,42 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login • FitFlow</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="container" style="max-width: 420px; margin-top: 80px;">
+<div class="container" style="max-width: 420px; margin-top: 80px;">
 
-    <!-- Title -->
-    <h1 class="gradient-text" style="text-align:center;">Login</h1>
-    <p class="subtext" style="text-align:center; margin-bottom: 24px;">Welcome back</p>
+  <h1 class="gradient-text" style="text-align:center;">Login</h1>
+  <p class="subtext" style="text-align:center; margin-bottom: 24px;">Welcome back</p>
 
-    <!-- Login Card -->
-    <div class="card" style="padding: var(--space-lg);">
+  <div class="card" style="padding: var(--space-lg);">
 
-      <label class="field-label">Username</label>
-      <input type="text" id="loginUsername" class="input" placeholder="Enter username">
+    <label class="field-label">Username</label>
+    <input type="text" id="loginUsername" class="input" placeholder="Enter username">
 
-      <label class="field-label">Password</label>
-      <input type="password" id="loginPassword" class="input" placeholder="Enter password">
+    <label class="field-label">Password</label>
+    <input type="password" id="loginPassword" class="input" placeholder="Enter password">
 
-      <button class="primary" onclick="handleLogin()" style="width:100%; margin-top: var(--space-md);">
-        Login
-      </button>
+    <button class="primary" onclick="handleLogin()" style="width:100%; margin-top: var(--space-md);">
+      Login
+    </button>
 
-      <p id="loginStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
-
-    </div>
-
-    <!-- Footer Links -->
-    <div style="text-align:center; margin-top: 16px;">
-      <a href="index.html" style="color: var(--blue); font-size: 0.9rem;">Home</a> •
-      <a href="register.html" style="color: var(--pink); font-size: 0.9rem;">Register</a>
-    </div>
+    <p id="loginStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
 
   </div>
+
+  <div style="text-align:center; margin-top: 16px;">
+    <a href="register.html" style="color: var(--blue); font-size: 0.9rem;">Create an account</a>
+  </div>
+
+</div>
 
 <script src="fitflow-global.js"></script>
 <script src="login.js"></script>
