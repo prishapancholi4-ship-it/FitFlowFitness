@@ -1,5 +1,5 @@
 /* --------------------------------------------------
-   GLOBAL RESET + BASE
+   BASE + GLOBAL
 -------------------------------------------------- */
 * {
   margin: 0;
@@ -9,7 +9,7 @@
 }
 
 body {
-  background: #fafafa;
+  background: #f7f8fc;
   color: #333;
   line-height: 1.6;
 }
@@ -23,6 +23,32 @@ body {
     rgba(168, 202, 255, 0.75),
     rgba(255, 179, 217, 0.75)
   );
+}
+
+/* --------------------------------------------------
+   CONTENT ALIGNMENT
+-------------------------------------------------- */
+.content {
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --------------------------------------------------
+   HEADERS
+-------------------------------------------------- */
+h1 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  background: var(--ff-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h2, h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------
@@ -80,28 +106,7 @@ body {
 }
 
 /* --------------------------------------------------
-   MAIN CONTENT
--------------------------------------------------- */
-.content {
-  padding: 30px;
-  transition: 0.3s ease;
-}
-
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  background: var(--ff-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-h2, h3 {
-  margin-bottom: 12px;
-  font-weight: 600;
-}
-
-/* --------------------------------------------------
-   GRADIENT BORDER TEMPLATE
+   GRADIENT BORDER CARD TEMPLATE
 -------------------------------------------------- */
 .gradient-card {
   background: #fff;
@@ -118,29 +123,27 @@ h2, h3 {
 }
 
 /* --------------------------------------------------
-   DASHBOARD CARDS
+   APPLY GRADIENT CARD TO ALL CARD-LIKE ELEMENTS
 -------------------------------------------------- */
-.dashboard-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
-}
-
-.dashboard-card {
-  composes: gradient-card;
-  text-align: center;
-}
-
-/* --------------------------------------------------
-   TRACKERS, SHOP, BADGES, ADMIN CARDS
--------------------------------------------------- */
+.dashboard-card,
 .tracker-card,
 .shop-item,
 .badge-item,
 .admin-card,
 .profile-box,
-.modal-box {
-  composes: gradient-card;
+.modal-box,
+.journal-box {
+  background: #fff;
+  border: 4px solid transparent;
+  border-radius: 14px;
+  background-image:
+    linear-gradient(#fff, #fff),
+    var(--ff-gradient);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  padding: 20px;
+  box-shadow: var(--ff-shadow);
+  margin-bottom: 20px;
 }
 
 /* Locked badges */
@@ -150,12 +153,18 @@ h2, h3 {
 }
 
 /* --------------------------------------------------
-   JOURNAL BOX
+   DASHBOARD GRID ALIGNMENT
 -------------------------------------------------- */
-.journal-box {
-  composes: gradient-card;
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
 }
 
+/* --------------------------------------------------
+   JOURNAL TEXTAREA
+-------------------------------------------------- */
 textarea {
   width: 100%;
   padding: 14px;
@@ -219,7 +228,3 @@ button:hover, .btn:hover {
     margin-left: 260px;
   }
 }
-.dashboard-card {
-  background: red !important;
-}
-
