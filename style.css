@@ -219,3 +219,7 @@ button:hover, .btn:hover {
     margin-left: 260px;
   }
 }
+.dashboard-card {
+  background: red !important;
+}
+
