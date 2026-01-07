@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitFlow Badges</title>
 
-  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- FitFlow Engine -->
   <script src="users.js"></script>
   <script src="script.js"></script>
 </head>
 
 <body onload="ffInitPage({ protectUser: true });">
 
-  <!-- BURGER ICON -->
   <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <!-- SIDEBAR -->
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-header">
       <h2>FitFlow</h2>
@@ -53,17 +49,15 @@
     </nav>
   </aside>
 
-  <!-- OVERLAY -->
   <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-  <!-- MAIN CONTENT -->
   <main class="content">
 
     <h1>Your Badges</h1>
 
     <!-- POINTS DISPLAY -->
     <section class="dashboard-cards">
-      <div class="dashboard-card">
+      <div class="dashboard-card gradient-card">
         <h3>Your Points</h3>
         <p id="pointsDisplay">0</p>
       </div>
@@ -72,13 +66,13 @@
     <!-- UNLOCKED BADGES -->
     <section>
       <h2>Unlocked Badges</h2>
-      <ul id="badgeList" class="badge-grid"></ul>
+      <ul id="badgeList" class="badge-grid gradient-card"></ul>
     </section>
 
     <!-- PURCHASED BADGES -->
     <section>
       <h2>Purchased Badges</h2>
-      <ul id="purchasedBadgesList" class="badge-grid"></ul>
+      <ul id="purchasedBadgesList" class="badge-grid gradient-card"></ul>
     </section>
 
   </main>

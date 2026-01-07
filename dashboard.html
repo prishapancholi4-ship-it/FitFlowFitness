@@ -5,20 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FitFlow Dashboard</title>
 
-  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- FitFlow Engine -->
   <script src="users.js"></script>
   <script src="script.js"></script>
 </head>
 
 <body onload="ffInitPage({ protectUser: true, dashboard: true });">
 
-  <!-- BURGER ICON -->
   <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <!-- SIDEBAR -->
   <aside id="sidebar" class="sidebar">
     <div class="sidebar-header">
       <h2>FitFlow</h2>
@@ -53,10 +49,8 @@
     </nav>
   </aside>
 
-  <!-- OVERLAY (click to close sidebar) -->
   <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-  <!-- MAIN CONTENT -->
   <main class="content">
 
     <h1>Dashboard</h1>
@@ -64,17 +58,17 @@
     <!-- POINTS + LEVEL -->
     <section class="dashboard-cards">
 
-      <div class="dashboard-card">
+      <div class="dashboard-card gradient-card">
         <h3>Points</h3>
         <p id="dashboardPoints">0</p>
       </div>
 
-      <div class="dashboard-card">
+      <div class="dashboard-card gradient-card">
         <h3>Level</h3>
         <p id="dashboardLevel">1</p>
       </div>
 
-      <div class="dashboard-card">
+      <div class="dashboard-card gradient-card">
         <h3>Streak</h3>
         <p id="dashboardStreak">0 days</p>
       </div>
@@ -84,7 +78,7 @@
     <!-- ACTIVITY LOG -->
     <section>
       <h2>Recent Activity</h2>
-      <div id="activityLogList"></div>
+      <div id="activityLogList" class="gradient-card"></div>
     </section>
 
   </main>
