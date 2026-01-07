@@ -264,3 +264,6 @@ tr:last-child td {
     margin-left: 260px;
   }
 }
+.dashboard-card {
+  background: red !important;
+}
