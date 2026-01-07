@@ -3,69 +3,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy – FitFlow</title>
+  <title>Privacy Policy</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="ffInitPage({ protectUser: true });">
 
-<div class="container">
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <img src="fitflow-logo.png" alt="FitFlow logo" class="logo">
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-  <h1 class="gradient-text">Privacy Policy</h1>
+    <nav class="sidebar-nav">
 
-  <section class="card" style="padding: var(--space-lg);">
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-    <h2>Your Privacy Matters</h2>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-    <p>
-      FitFlow is designed to be a personal wellness companion. We believe your data should stay
-      in your hands, so FitFlow stores all progress, preferences, and activity logs
-      <strong>locally on your device</strong>. No information is uploaded, transmitted, or shared with external servers.
-    </p>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-    <h3 style="margin-top: var(--space-md);">What We Store</h3>
-    <ul class="styled-list">
-      <li>Your points, streaks, and level progress</li>
-      <li>Your wellness logs (sleep, water, workouts, meals, meditation, affirmations, journal entries)</li>
-      <li>Your onboarding status</li>
-      <li>Your login state</li>
-    </ul>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
 
-    <h3 style="margin-top: var(--space-md);">What We Do NOT Store</h3>
-    <ul class="styled-list">
-      <li>No personal identity data is collected or transmitted</li>
-      <li>No analytics or tracking is performed</li>
-      <li>No data is shared with third parties</li>
-      <li>No cloud storage is used</li>
-    </ul>
+    </nav>
+  </aside>
 
-    <h3 style="margin-top: var(--space-md);">Your Control</h3>
-    <p>
-      You may clear all FitFlow data at any time by logging out or clearing your browser storage.
-      This will reset your progress and remove all locally stored information.
-    </p>
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-    <button class="primary" onclick="agreePrivacy()" style="margin-top: var(--space-md);">
-      I Agree
-    </button>
+  <main class="content">
+    <h1>Privacy Policy</h1>
 
-    <p id="privacyStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
+    <section class="legal-card">
+      <h2>1. Data Collection</h2>
+      <p>FitFlow collects only the data necessary to provide its features...</p>
+    </section>
 
-  </section>
+    <section class="legal-card">
+      <h2>2. Data Storage</h2>
+      <p>Your data is stored securely and never shared without consent...</p>
+    </section>
 
-</div>
+    <section class="legal-card">
+      <h2>3. User Rights</h2>
+      <p>You may request deletion or export of your data at any time...</p>
+    </section>
 
-<script src="script.js"></script>
+    <section class="legal-card">
+      <h2>4. Cookies</h2>
+      <p>FitFlow may use cookies to improve user experience...</p>
+    </section>
 
-<script>
-  function agreePrivacy() {
-    localStorage.setItem("fitflowPrivacyAgreed", "true");
-    document.getElementById("privacyStatus").textContent = "Thank you. Redirecting...";
-    window.location.href = "terms.html";
-  }
-</script>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

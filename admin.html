@@ -2,47 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Admin • FitFlow</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard</title>
+
   <link rel="stylesheet" href="style.css">
-  <script defer src="admin.js"></script>
+  <script src="users.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .admin-header { color: #6da8ff; }
+    .admin-card { background: #f7faff; border-left: 4px solid #6da8ff; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+  </style>
 </head>
 
-<body class="has-burger admin">
+<body onload="ffInitPage({ protectUser: true, adminOnly: true });">
 
-  <!-- Burger -->
   <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <!-- Sidebar -->
-  <div class="sidebar" id="sidebar">
-
-    <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
-    <button class="secondary" onclick="location.href='journal.html'">Journal</button>
-    <button class="secondary" onclick="location.href='badges.html'">Badges</button>
-    <button class="secondary" onclick="location.href='shop.html'">Shop</button>
-
-    <div class="menu-section">Admin Tools</div>
-    <div class="admin-only">
-      <button class="primary" onclick="openNewPostModal()">New Blog Post</button>
-      <button class="secondary" onclick="location.href='manage-users.html'">Manage Users</button>
-      <button class="danger" onclick="resetAllProgress()">Reset All Progress</button>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow Admin</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
     </div>
 
-    <div class="menu-section">Quick Actions</div>
-    <button class="secondary" onclick="addPoints()">Add Points</button>
-    <button class="secondary" onclick="resetDay()">Reset Day</button>
+    <nav class="sidebar-nav">
 
-  </div>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-  <!-- Overlay -->
-  <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  <div class="container">
-    <h1 class="gradient-text">Admin Panel</h1>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-    <div class="card" style="padding: var(--space-lg);">
-      <p class="subtext">Welcome back, admin. All tools are in the menu.</p>
+      <div class="admin-only">
+        <p class="sidebar-section">Admin</p>
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin-analytics.html">Analytics</a>
+        <a href="admin-all-analytics.html">All Analytics</a>
+        <a href="admin-users.html">Manage Users</a>
+        <a href="admin-security.html">Security</a>
+        <a href="admin-tools.html">Tools</a>
+        <a href="admin-challenges.html">Challenges</a>
+        <a href="admin-levels.html">Levels</a>
+        <a href="blog-admin.html">Blog Manager</a>
+      </div>
+
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <main class="content">
+
+    <h1 class="admin-header">Admin Dashboard</h1>
+
+    <div class="admin-card">
+      <h3>Total Users</h3>
+      <p id="adminTotalUsers">0</p>
     </div>
-  </div>
+
+    <div class="admin-card">
+      <h3>Total Admins</h3>
+      <p id="adminTotalAdmins">0</p>
+    </div>
+
+    <div class="admin-card">
+      <h3>Activity Logs</h3>
+      <p id="adminTotalLogs">0</p>
+    </div>
+
+    <h2 class="admin-header">Recent Activity</h2>
+    <div id="adminRecentActivity"></div>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!isCurrentUserAdmin()) {
+        document.querySelectorAll(".admin-only").forEach(el => el.style.display = "none");
+      }
+    });
+  </script>
 
 </body>
 </html>

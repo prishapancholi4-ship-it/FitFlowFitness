@@ -3,35 +3,99 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Admin Security</title>
+  <title>Security Center</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .admin-header { color: #6da8ff; }
+    .admin-card { background: #f7faff; border-left: 4px solid #6da8ff; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+    .danger-btn { background: #ff6d6d; color: white; padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer; }
+  </style>
 </head>
 
-<body onload="initAdminSecurity()">
+<body onload="ffInitPage({ protectUser: true, adminOnly: true });">
 
-<div class="container">
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <h1 class="gradient-text">Admin Security</h1>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow Admin</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-  <!-- SECURITY ACTIONS -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Security Actions</h2>
+    <nav class="sidebar-nav">
 
-    <button class="primary" onclick="forceLogoutAll()">Force Logout All Users</button>
-    <button class="primary" onclick="resetAdminPassword()">Reset Admin Password</button>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-    <p id="securityStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
-  </section>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  <!-- BACK BUTTON -->
-  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
-    Back
-  </button>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-</div>
+      <div class="admin-only">
+        <p class="sidebar-section">Admin</p>
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin-analytics.html">Analytics</a>
+        <a href="admin-all-analytics.html">All Analytics</a>
+        <a href="admin-users.html">Manage Users</a>
+        <a href="admin-security.html">Security</a>
+        <a href="admin-tools.html">Tools</a>
+        <a href="admin-challenges.html">Challenges</a>
+        <a href="admin-levels.html">Levels</a>
+        <a href="blog-admin.html">Blog Manager</a>
+      </div>
 
-<script src="fitflow-global.js"></script>
-<script src="admin-security.js"></script>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <main class="content">
+
+    <h1 class="admin-header">Security Center</h1>
+
+    <div class="admin-card">
+      <h3>Failed Login Attempts</h3>
+      <p id="failedLogins">0</p>
+    </div>
+
+    <div class="admin-card">
+      <h3>Locked Accounts</h3>
+      <p id="lockedAccounts">0</p>
+    </div>
+
+    <div class="admin-card">
+      <h3>Reset All Sessions</h3>
+      <button class="danger-btn" onclick="ffResetAllSessions()">Reset Sessions</button>
+    </div>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

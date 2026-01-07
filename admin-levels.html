@@ -3,45 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Admin Levels</title>
+  <title>Admin Levels</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
+
+  <style>
+    .admin-header { color: #6da8ff; }
+    .admin-card { background: #f7faff; border-left: 4px solid #6da8ff; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+    th { background: #e8f1ff; padding: 10px; text-align: left; }
+    td { padding: 10px; border-bottom: 1px solid #ddd; }
+    .admin-btn { background: #6da8ff; color: white; padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer; }
+  </style>
 </head>
 
-<body onload="initAdminLevels()">
+<body onload="ffInitPage({ protectUser: true, adminOnly: true });">
 
-<div class="container">
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <h1 class="gradient-text">Level Manager</h1>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow Admin</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-  <!-- CREATE LEVEL -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Create Level</h2>
+    <nav class="sidebar-nav">
 
-    <input type="number" id="levelNumber" class="input" placeholder="Level number">
-    <input type="number" id="levelPoints" class="input" placeholder="Points required">
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-    <button class="primary" onclick="addLevel()" style="margin-top: var(--space-md);">
-      Add Level
-    </button>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-    <p id="levelStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
-  </section>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-  <!-- EXISTING LEVELS -->
-  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
-    <h2>Existing Levels</h2>
-    <ul id="levelList" class="level-list"></ul>
-  </section>
+      <div class="admin-only">
+        <p class="sidebar-section">Admin</p>
+        <a href="admin.html">Admin Dashboard</a>
+        <a href="admin-analytics.html">Analytics</a>
+        <a href="admin-all-analytics.html">All Analytics</a>
+        <a href="admin-users.html">Manage Users</a>
+        <a href="admin-security.html">Security</a>
+        <a href="admin-tools.html">Tools</a>
+        <a href="admin-challenges.html">Challenges</a>
+        <a href="admin-levels.html">Levels</a>
+        <a href="blog-admin.html">Blog Manager</a>
+      </div>
 
-  <!-- BACK BUTTON -->
-  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
-    Back
-  </button>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
 
-</div>
+    </nav>
+  </aside>
 
-<script src="fitflow-global.js"></script>
-<script src="admin-levels.js"></script>
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <main class="content">
+
+    <h1 class="admin-header">Manage Levels</h1>
+
+    <div class="admin-card">
+      <h3>Create New Level</h3>
+      <input id="levelNumber" placeholder="Level number">
+      <input id="levelXP" placeholder="XP required">
+      <button class="admin-btn" onclick="ffCreateLevel()">Create</button>
+    </div>
+
+    <h2 class="admin-header">Existing Levels</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>XP Required</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="levelsTable"></tbody>
+    </table>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

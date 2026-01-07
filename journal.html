@@ -3,207 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Journal • FitFlow</title>
+  <title>FitFlow Journal</title>
+
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
-  <style>
-    .journal-layout {
-      display: flex;
-      gap: var(--space-lg);
-      align-items: stretch;
-      margin-top: var(--space-lg);
-    }
 
-    .journal-binder {
-      width: 40px;
-      min-height: 260px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 16px;
-      padding-left: 4px;
-    }
-
-    .journal-ring {
-      width: 16px;
-      height: 16px;
-      border-radius: 999px;
-      border: 3px solid var(--peach, #ffb7b2);
-      background: white;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.03);
-    }
-
-    .journal-page {
-      flex: 1;
-      background: #fffdf8;
-      border-radius: 18px;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-      padding: var(--space-lg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .journal-page::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.03) 0px,
-        rgba(0, 0, 0, 0.03) 1px,
-        transparent 22px,
-        transparent 24px
-      );
-      pointer-events: none;
-    }
-
-    .journal-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: var(--space-md);
-      position: relative;
-      z-index: 1;
-    }
-
-    .journal-date {
-      font-size: 0.85rem;
-      color: var(--muted, #6b7280);
-    }
-
-    .journal-textarea {
-      width: 100%;
-      min-height: 200px;
-      border-radius: 12px;
-      border: none;
-      padding: 14px 16px;
-      font-size: 0.98rem;
-      resize: vertical;
-      background: transparent;
-      position: relative;
-      z-index: 1;
-      line-height: 1.6;
-      font-family: inherit;
-    }
-
-    .journal-textarea:focus {
-      outline: none;
-    }
-
-    .journal-save-btn {
-      position: absolute;
-      right: var(--space-lg);
-      bottom: var(--space-lg);
-      z-index: 2;
-    }
-
-    .journal-entries {
-      margin-top: var(--space-xl);
-    }
-
-    .journal-entries-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: var(--space-sm);
-      color: var(--slate-700, #334155);
-    }
-
-    .journal-entry-card {
-      background: #fffdf8;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.06);
-      padding: 14px 16px;
-      margin-bottom: 10px;
-      border-left: 4px solid var(--blue, #7fb3ff);
-    }
-
-    .journal-entry-meta {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.78rem;
-      color: var(--muted, #6b7280);
-      margin-bottom: 6px;
-    }
-
-    .journal-entry-text {
-      font-size: 0.9rem;
-      white-space: pre-wrap;
-    }
-
-    @media (max-width: 720px) {
-      .journal-layout {
-        flex-direction: row;
-      }
-      .journal-binder {
-        display: none;
-      }
-      .journal-page {
-        border-radius: 16px;
-      }
-    }
-  </style>
+  <!-- FitFlow Engine -->
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
-<body>
 
-<div class="container">
+<body onload="ffInitPage({ protectUser: true, journal: true });">
 
-  <h1 class="gradient-text">Journal</h1>
-  <p class="subtext">A calm space for your thoughts.</p>
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <div class="journal-layout">
-    <div class="journal-binder">
-      <div class="journal-ring"></div>
-      <div class="journal-ring"></div>
-      <div class="journal-ring"></div>
-      <div class="journal-ring"></div>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
     </div>
 
-    <section class="journal-page card">
-      <div class="journal-header-row">
-        <h2>Today’s entry</h2>
-        <span class="journal-date" id="journalDate"></span>
-      </div>
+    <nav class="sidebar-nav">
 
-      <textarea
-        id="journalText"
-        class="journal-textarea"
-        placeholder="Write freely about your day, your energy, your thoughts..."
-      ></textarea>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-      <button
-        class="primary journal-save-btn"
-        id="saveJournalBtn"
-        onclick="saveJournalEntry()"
-      >
-        Save entry
-      </button>
-    </section>
-  </div>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  <section class="journal-entries">
-    <h3 class="journal-entries-title">Previous entries</h3>
-    <div id="journalEntriesList"></div>
-  </section>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-</div>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
 
-<script src="fitflow-global.js"></script>
-<script src="script.js"></script>
-<script>
-  // Date display for binder page
-  const dateEl = document.getElementById("journalDate");
-  if (dateEl) {
-    const now = new Date();
-    dateEl.textContent = now.toLocaleDateString(undefined, {
-      weekday: "short",
-      year: "numeric",
-      month: "short",
-      day: "numeric"
-    });
-  }
+    </nav>
+  </aside>
 
-  // If your existing journal logic uses different IDs,
-  // adjust your JS or the IDs above to match.
-</script>
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <h1>Journal</h1>
+
+    <!-- BINDER STYLE CONTAINER -->
+    <div class="journal-binder">
+
+      <textarea id="journalText" class="journal-input" placeholder="Write your thoughts..."></textarea>
+
+      <button id="saveJournalBtn" class="primary-btn">Save Entry</button>
+
+      <h2>Your Entries</h2>
+      <div id="journalEntriesList" class="journal-entries"></div>
+
+    </div>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

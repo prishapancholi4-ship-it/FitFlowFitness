@@ -3,227 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard • FitFlow</title>
+  <title>FitFlow Dashboard</title>
+
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
 
-  <style>
-    /* ---------------- Sidebar + Burger ---------------- */
-
-    .burger {
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      font-size: 1.8rem;
-      background: none;
-      border: none;
-      cursor: pointer;
-      z-index: 1000;
-      color: var(--slate-700);
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 240px;
-      height: 100%;
-      background: white;
-      box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-      padding: 20px;
-      transition: left 0.25s ease;
-      z-index: 999;
-      border-right: 1px solid rgba(0,0,0,0.05);
-    }
-
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .sidebar li {
-      margin-bottom: 14px;
-    }
-
-    .sidebar a,
-    .logout-btn {
-      font-size: 1rem;
-      color: var(--slate-700);
-      text-decoration: none;
-      display: block;
-      padding: 6px 0;
-    }
-
-    .sidebar a:hover,
-    .logout-btn:hover {
-      color: var(--blue);
-    }
-
-    .logout-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      text-align: left;
-      width: 100%;
-    }
-
-    /* ---------------- Dashboard Layout ---------------- */
-
-    .dashboard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: var(--space-lg);
-      margin-top: var(--space-lg);
-    }
-
-    .stat-label {
-      font-size: 0.8rem;
-      color: var(--muted, #6b7280);
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      margin-bottom: 4px;
-    }
-
-    .stat-value {
-      font-size: 1.4rem;
-      font-weight: 700;
-    }
-
-    .substat {
-      font-size: 0.9rem;
-      color: var(--muted, #6b7280);
-      margin-top: 6px;
-    }
-
-    .section-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .activity-item {
-      font-size: 0.9rem;
-      padding: 6px 0;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.4);
-    }
-
-    .activity-item:last-child {
-      border-bottom: none;
-    }
-
-    .activity-meta {
-      font-size: 0.75rem;
-      color: var(--muted, #6b7280);
-    }
-  </style>
+  <!-- FitFlow Engine -->
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="ffInitPage({ protectUser: true, dashboard: true });">
 
-<!-- ⭐ BURGER BUTTON -->
-<button class="burger" onclick="toggleMenu()">☰</button>
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<!-- ⭐ SIDEBAR MENU -->
-<nav id="sidebar" class="sidebar">
-  <ul>
-    <li><a href="dashboard.html">Dashboard</a></li>
-    <li><a href="journal.html">Journal</a></li>
-    <li><a href="meditation.html">Meditation</a></li>
-    <li><a href="breathing.html">Breathing</a></li>
-    <li><a href="sleep.html">Sleep</a></li>
-    <li><a href="water.html">Water</a></li>
-    <li><a href="nutrition.html">Nutrition</a></li>
-    <li><a href="workouts.html">Workouts</a></li>
-    <li><a href="activity-log.html">Activity Log</a></li>
-    <li><a href="progress.html">Progress</a></li>
-    <li><a href="rewards.html">Rewards</a></li>
-    <li><a href="shop.html">Shop</a></li>
-    <li><a href="blog.html">Blog</a></li>
-    <li><a href="settings.html">Settings</a></li>
-
-    <!-- Admin-only link -->
-    <li id="adminLink" style="display:none;">
-      <a href="admin.html">Admin</a>
-    </li>
-
-    <li><button onclick="logout()" class="logout-btn">Logout</button></li>
-  </ul>
-</nav>
-
-<!-- ⭐ MAIN CONTENT -->
-<div class="container">
-
-  <h1 class="gradient-text">Dashboard</h1>
-  <p class="subtext">Your gentle overview. Use the menu for everything else.</p>
-
-  <section class="dashboard-grid">
-
-    <div class="card">
-      <div class="stat-label">Points</div>
-      <div class="stat-value" id="dashboardPoints">0</div>
-      <div class="substat">Keep moving, every action counts.</div>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
     </div>
 
-    <div class="card">
-      <div class="stat-label">Level</div>
-      <div class="stat-value" id="dashboardLevel">1</div>
-      <div class="substat" id="dashboardBadge">No badge yet</div>
-    </div>
+    <nav class="sidebar-nav">
 
-    <div class="card">
-      <div class="stat-label">Streak</div>
-      <div class="stat-value" id="dashboardStreak">0</div>
-      <div class="substat">Days in a row showing up for yourself.</div>
-    </div>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-    <div class="card">
-      <div class="section-title">This week at a glance</div>
-      <p class="substat" id="dashboardWeekSummary">
-        Your sleep, movement, and mindfulness summary will appear here.
-      </p>
-    </div>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  </section>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-  <section class="card" style="margin-top: var(--space-lg);">
-    <div class="section-title">Recent activity</div>
-    <div id="dashboardActivityList"></div>
-  </section>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
 
-</div>
+    </nav>
+  </aside>
 
-<!-- ⭐ GLOBAL SCRIPTS -->
-<script src="fitflow-global.js"></script>
-<script src="script.js"></script>
+  <!-- OVERLAY (click to close sidebar) -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-<!-- ⭐ MENU TOGGLE + ADMIN CHECK -->
-<script>
-function toggleMenu() {
-  document.getElementById("sidebar").classList.toggle("open");
-}
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-const isAdmin = localStorage.getItem("fitflowRole") === "admin";
-if (isAdmin) {
-  document.getElementById("adminLink").style.display = "block";
-}
+    <h1>Dashboard</h1>
 
-// Dashboard stats
-document.getElementById("dashboardPoints").textContent =
-  localStorage.getItem("fitflowPoints") || 0;
+    <!-- POINTS + LEVEL -->
+    <section class="dashboard-cards">
 
-document.getElementById("dashboardLevel").textContent =
-  localStorage.getItem("fitflowLevel") || 1;
+      <div class="dashboard-card">
+        <h3>Points</h3>
+        <p id="dashboardPoints">0</p>
+      </div>
 
-document.getElementById("dashboardStreak").textContent =
-  localStorage.getItem("fitflowStreak") || 0;
+      <div class="dashboard-card">
+        <h3>Level</h3>
+        <p id="dashboardLevel">1</p>
+      </div>
 
-document.getElementById("dashboardBadge").textContent =
-  localStorage.getItem("fitflowBadge") || "No badge yet";
-</script>
+      <div class="dashboard-card">
+        <h3>Streak</h3>
+        <p id="dashboardStreak">0 days</p>
+      </div>
+
+    </section>
+
+    <!-- ACTIVITY LOG -->
+    <section>
+      <h2>Recent Activity</h2>
+      <div id="activityLogList"></div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

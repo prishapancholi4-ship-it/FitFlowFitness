@@ -3,33 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Badges</title>
+  <title>FitFlow Badges</title>
+
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- FitFlow Engine -->
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body onload="initBadges()">
+<body onload="ffInitPage({ protectUser: true });">
 
-<div class="container">
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <h1 class="gradient-text">Your Badges</h1>
-  <p class="subtext">Collect badges from the Shop to fill your gallery.</p>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-  <!-- OWNED BADGES CARD -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Owned Badges</h2>
-    <div id="badgeGrid" class="badge-grid"></div>
-  </section>
+    <nav class="sidebar-nav">
 
-  <!-- BACK BUTTON -->
-  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
-    Back
-  </button>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-</div>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-<script src="fitflow-global.js"></script>
-<script src="badge-data.js"></script>
-<script src="badges.js"></script>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
+
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <h1>Your Badges</h1>
+
+    <!-- POINTS DISPLAY -->
+    <section class="dashboard-cards">
+      <div class="dashboard-card">
+        <h3>Your Points</h3>
+        <p id="pointsDisplay">0</p>
+      </div>
+    </section>
+
+    <!-- UNLOCKED BADGES -->
+    <section>
+      <h2>Unlocked Badges</h2>
+      <ul id="badgeList" class="badge-grid"></ul>
+    </section>
+
+    <!-- PURCHASED BADGES -->
+    <section>
+      <h2>Purchased Badges</h2>
+      <ul id="purchasedBadgesList" class="badge-grid"></ul>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

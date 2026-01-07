@@ -3,58 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Settings – FitFlow</title>
+  <title>Settings</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="ffInitPage({ protectUser: true });">
 
-<script>
-if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
-  window.location.href = "login.html";
-}
-</script>
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<!-- HAMBURGER -->
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-<!-- SIDEBAR -->
-<div id="sideMenu" class="side-menu">
-  <h2 class="menu-title">FitFlow Menu</h2>
+    <nav class="sidebar-nav">
 
-  <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
-  <button class="secondary" onclick="location.href='settings.html'">Settings</button>
-  <button class="danger" onclick="logoutUser()">Logout</button>
-</div>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-<div class="container">
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  <h1 class="gradient-text">Settings</h1>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-  <!-- ACCOUNT SECTION -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Account</h2>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
 
-    <button class="danger" onclick="logoutUser()" style="margin-top: var(--space-md);">
-      Logout
-    </button>
-  </section>
+    </nav>
+  </aside>
 
-</div>
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-<script src="fitflow-global.js"></script>
+  <!-- MAIN CONTENT -->
+  <main class="content">
 
-<script>
-function toggleMenu() {
-  document.getElementById("sideMenu").classList.toggle("open");
-}
+    <h1>Settings</h1>
 
-function logoutUser() {
-  localStorage.removeItem("fitflowUsername");
-  localStorage.removeItem("fitflowOnboardingComplete");
-  window.location.href = "login.html";
-}
-</script>
+    <section class="settings-card">
+
+      <h2>Change Password</h2>
+      <input id="currentPassword" type="password" placeholder="Current password">
+      <input id="newPassword" type="password" placeholder="New password">
+      <input id="confirmPassword" type="password" placeholder="Confirm new password">
+      <button class="primary-btn" onclick="ffChangePassword()">Update Password</button>
+
+    </section>
+
+    <section class="settings-card">
+      <h2>Danger Zone</h2>
+      <button class="danger-btn" onclick="ffDeleteAccount()">Delete Account</button>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

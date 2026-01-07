@@ -3,50 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Blog</title>
+  <title>FitFlow Blog</title>
+
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- FitFlow Engine -->
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body onload="initBlog()">
+<body onload="ffInitPage({ protectUser: true });">
 
-<div class="container">
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <h1 class="gradient-text">FitFlow Blog</h1>
-
-  <!-- RECENT POSTS -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Recent Posts</h2>
-    <ul id="blogList" class="blog-list"></ul>
-  </section>
-
-  <!-- BACK BUTTON -->
-  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
-    Back
-  </button>
-
-</div>
-
-<script src="fitflow-global.js"></script>
-<script src="blog.js"></script>
-
-<!-- ADMIN-ONLY FLOATING BUTTON -->
-<button id="newPostBtn" class="floating-btn" onclick="openPostModal()">+</button>
-
-<!-- CREATE POST MODAL -->
-<div id="postModal" class="modal">
-  <div class="modal-content card" style="padding: var(--space-lg);">
-    <h2>Create Post</h2>
-
-    <textarea id="newPostText" class="input textarea" placeholder="Write your post..."></textarea>
-
-    <div style="margin-top: var(--space-md); display:flex; gap: var(--space-sm);">
-      <button class="primary" onclick="createPost()">Publish</button>
-      <button class="secondary" onclick="closePostModal()">Cancel</button>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
     </div>
 
-    <p id="postStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
+    <nav class="sidebar-nav">
+
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
+
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
+
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
+
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <h1>FitFlow Blog</h1>
+
+    <!-- ADMIN-ONLY POST BUTTON -->
+    <div id="adminPostArea" class="admin-only">
+      <button class="primary-btn" onclick="openPostModal()">New Post</button>
+    </div>
+
+    <!-- BLOG POSTS -->
+    <section>
+      <h2>Latest Posts</h2>
+      <div id="blogPostsContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- POST MODAL (ADMIN ONLY) -->
+  <div id="postModal" class="modal admin-only">
+    <div class="modal-content">
+      <h2>Create New Post</h2>
+
+      <input id="postTitle" placeholder="Post title">
+      <textarea id="postContent" placeholder="Write your post..."></textarea>
+
+      <button onclick="submitBlogPost()">Publish</button>
+      <button class="secondary-btn" onclick="closePostModal()">Cancel</button>
+    </div>
   </div>
-</div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+
+    // Hide admin-only elements for non-admins
+    document.addEventListener("DOMContentLoaded", () => {
+      if (!isCurrentUserAdmin()) {
+        document.querySelectorAll(".admin-only").forEach(el => {
+          el.style.display = "none";
+        });
+      }
+    });
+
+    function openPostModal() {
+      if (!isCurrentUserAdmin()) return;
+      document.getElementById("postModal").style.display = "block";
+    }
+
+    function closePostModal() {
+      document.getElementById("postModal").style.display = "none";
+    }
+
+    function submitBlogPost() {
+      if (!isCurrentUserAdmin()) return;
+      ffCreateBlogPost();
+      closePostModal();
+    }
+  </script>
 
 </body>
 </html>

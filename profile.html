@@ -3,50 +3,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Profile – FitFlow</title>
+  <title>Your Profile</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="ffInitPage({ protectUser: true });">
 
-<script>
-  if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<div class="container">
-
-  <!-- Logo -->
-  <div style="text-align:center; margin-bottom: var(--space-lg);">
-    <img src="fitflow-logo.png" alt="FitFlow logo" style="width:160px; max-width:100%;">
-  </div>
-
-  <h1 class="gradient-text">Your Profile</h1>
-
-  <!-- ACCOUNT DETAILS -->
-  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-md);">
-    <h2>Account Details</h2>
-    <p>Email: <span id="profileEmail"></span></p>
-    <p>Level: <span id="levelDisplay"></span></p>
-    <p>Points: <span id="pointsDisplay"></span></p>
-    <p>Streak: <span id="streakDisplay"></span></p>
-    <p>Badge: <span id="badgeDisplay"></span></p>
-  </section>
-
-  <!-- PROGRESS BAR -->
-  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
-    <h2>Progress</h2>
-
-    <div class="progress-track" style="margin-top: var(--space-md);">
-      <div id="levelProgressBar"></div>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
     </div>
-  </section>
 
-</div>
+    <nav class="sidebar-nav">
 
-<script src="fitflow-global.js"></script>
-<script src="script.js"></script>
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
+
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
+
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
+
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <h1>Your Profile</h1>
+
+    <section class="profile-card">
+
+      <div class="profile-row">
+        <span class="profile-label">Username:</span>
+        <span id="profileUsername"></span>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Email:</span>
+        <span id="profileEmail"></span>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Role:</span>
+        <span id="profileRole"></span>
+      </div>
+
+      <div class="profile-row">
+        <span class="profile-label">Joined:</span>
+        <span id="profileJoinDate"></span>
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

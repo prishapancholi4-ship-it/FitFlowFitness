@@ -3,234 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shop • FitFlow</title>
+  <title>FitFlow Shop</title>
+
   <link rel="stylesheet" href="style.css">
-  <style>
-    .badge-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: var(--space-md);
-      margin-top: var(--space-lg);
-    }
-
-    .badge-card {
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
-      padding: 14px 10px 12px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
-    }
-
-    .badge-card.unlocked:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.13);
-    }
-
-    .badge-icon {
-      font-size: 2rem;
-      margin-bottom: 6px;
-    }
-
-    .badge-name {
-      font-size: 0.9rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .badge-desc {
-      font-size: 0.75rem;
-      color: var(--muted, #6b7280);
-      padding: 0 6px;
-    }
-
-    .badge-tag {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      border-radius: 999px;
-      padding: 2px 8px;
-      margin-top: 6px;
-    }
-
-    .badge-tag.easy {
-      background: rgba(110, 231, 183, 0.18);
-      color: #047857;
-    }
-
-    .badge-tag.medium {
-      background: rgba(96, 165, 250, 0.18);
-      color: #1d4ed8;
-    }
-
-    .badge-tag.hard {
-      background: rgba(251, 146, 60, 0.18);
-      color: #c2410c;
-    }
-
-    .badge-card.locked {
-      opacity: 0.45;
-    }
-
-    .badge-lock {
-      position: absolute;
-      top: 8px;
-      right: 10px;
-      font-size: 0.9rem;
-      color: var(--muted, #6b7280);
-    }
-
-    .badge-ribbon {
-      position: absolute;
-      left: -34px;
-      top: 12px;
-      background: linear-gradient(135deg, #f472b6, #fb7185);
-      color: white;
-      font-size: 0.7rem;
-      padding: 2px 40px;
-      transform: rotate(-24deg);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-  </style>
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
-<body>
 
-<div class="container">
+<body onload="ffInitPage({ protectUser: true });">
 
-  <h1 class="gradient-text">Shop & Badges</h1>
-  <p class="subtext">Your earned badges and the ones waiting for you.</p>
+  <!-- BURGER ICON -->
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <section class="card">
-    <h2>Badge gallery</h2>
-    <div id="badgeGallery" class="badge-grid"></div>
-  </section>
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-</div>
+    <nav class="sidebar-nav">
 
-<script src="fitflow-global.js"></script>
-<script>
-  // 1. Define all possible badges
-  const allBadges = [
-    {
-      id: "starter",
-      name: "Starter",
-      icon: "🌱",
-      description: "Complete your first log in FitFlow.",
-      difficulty: "easy"
-    },
-    {
-      id: "hydration-hero",
-      name: "Hydration Hero",
-      icon: "💧",
-      description: "Log your water intake for 3 days.",
-      difficulty: "easy"
-    },
-    {
-      id: "streak-5",
-      name: "5‑Day Streak",
-      icon: "🔥",
-      description: "Show up 5 days in a row.",
-      difficulty: "medium"
-    },
-    {
-      id: "streak-14",
-      name: "14‑Day Streak",
-      icon: "⚡",
-      description: "Stay consistent for 14 days.",
-      difficulty: "medium"
-    },
-    {
-      id: "mindful-master",
-      name: "Mindfulness Master",
-      icon: "🧘‍♀️",
-      description: "Meditate or journal for 7 days.",
-      difficulty: "medium"
-    },
-    {
-      id: "level-10",
-      name: "Level 10",
-      icon: "🏅",
-      description: "Reach level 10 in FitFlow.",
-      difficulty: "hard"
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
+
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
+
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
+
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+
+    </nav>
+  </aside>
+
+  <!-- OVERLAY -->
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <h1>Badge Shop</h1>
+
+    <!-- POINTS DISPLAY -->
+    <section class="dashboard-cards">
+      <div class="dashboard-card">
+        <h3>Your Points</h3>
+        <p id="pointsDisplay">0</p>
+      </div>
+    </section>
+
+    <!-- SHOP GRID -->
+    <section>
+      <h2>Available Badges</h2>
+      <div id="shopBadgeList" class="badge-grid"></div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
     }
-  ];
-
-  // 2. Load earned badges from localStorage
-  function loadEarnedBadges() {
-    try {
-      const raw = localStorage.getItem("fitflowBadges");
-      if (!raw) return [];
-      const parsed = JSON.parse(raw);
-      if (Array.isArray(parsed)) return parsed;
-      return [];
-    } catch (e) {
-      return [];
-    }
-  }
-
-  const earnedBadges = loadEarnedBadges();
-
-  // 3. Render gallery
-  function renderBadgeGallery() {
-    const container = document.getElementById("badgeGallery");
-    if (!container) return;
-    container.innerHTML = "";
-
-    allBadges.forEach(badge => {
-      const isUnlocked =
-        earnedBadges.includes(badge.id) ||
-        earnedBadges.includes(badge.name);
-
-      const card = document.createElement("div");
-      card.className = "badge-card " + (isUnlocked ? "unlocked" : "locked");
-
-      if (isUnlocked) {
-        const ribbon = document.createElement("div");
-        ribbon.className = "badge-ribbon";
-        ribbon.textContent = "Unlocked";
-        card.appendChild(ribbon);
-      } else {
-        const lock = document.createElement("div");
-        lock.className = "badge-lock";
-        lock.textContent = "🔒";
-        card.appendChild(lock);
-      }
-
-      const icon = document.createElement("div");
-      icon.className = "badge-icon";
-      icon.textContent = badge.icon;
-      card.appendChild(icon);
-
-      const name = document.createElement("div");
-      name.className = "badge-name";
-      name.textContent = badge.name;
-      card.appendChild(name);
-
-      const desc = document.createElement("div");
-      desc.className = "badge-desc";
-      desc.textContent = badge.description;
-      card.appendChild(desc);
-
-      const tag = document.createElement("div");
-      tag.className = "badge-tag " + badge.difficulty;
-      tag.textContent =
-        badge.difficulty === "easy"
-          ? "Easy"
-          : badge.difficulty === "medium"
-          ? "Medium"
-          : "Hard";
-      card.appendChild(tag);
-
-      container.appendChild(card);
-    });
-  }
-
-  renderBadgeGallery();
-</script>
+  </script>
 
 </body>
 </html>

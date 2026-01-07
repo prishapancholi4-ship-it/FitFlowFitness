@@ -3,44 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FitFlow – Sleep Log</title>
+  <title>Sleep Tracker</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body onload="initSleep()">
+<body onload="ffInitPage({ protectUser: true, trackers: true });">
 
-<div class="container">
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-  <h1 class="gradient-text">Sleep Tracker</h1>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-  <!-- ADD SLEEP ENTRY -->
-  <section class="card" style="padding: var(--space-lg);">
+    <nav class="sidebar-nav">
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-    <label class="field-label">Hours Slept</label>
-    <input type="number" id="sleepHours" class="input" placeholder="e.g., 7.5">
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-    <button class="primary" onclick="addSleep()" style="margin-top: var(--space-md);">
-      Add Sleep
-    </button>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-    <p id="sleepStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
-  </section>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </aside>
 
-  <!-- RECENT SLEEP LOGS -->
-  <section class="card" style="padding: var(--space-lg); margin-top: var(--space-lg);">
-    <h2>Recent Sleep Logs</h2>
-    <ul id="sleepList"></ul>
-  </section>
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-  <!-- BACK BUTTON -->
-  <button class="utility" onclick="goBack()" style="margin-top: var(--space-lg);">
-    Back
-  </button>
+  <main class="content">
+    <h1>Sleep Tracker</h1>
 
-</div>
+    <input id="sleepHours" placeholder="Hours of sleep">
+    <button class="primary-btn">Save Sleep</button>
 
-<script src="fitflow-global.js"></script>
-<script src="sleep.js"></script>
+    <h2>Sleep Log</h2>
+    <div id="sleepLogList"></div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>

@@ -3,104 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meditation – FitFlow</title>
+  <title>Meditation Tracker</title>
+
   <link rel="stylesheet" href="style.css">
+  <script src="users.js"></script>
+  <script src="script.js"></script>
 </head>
 
-<body>
+<body onload="ffInitPage({ protectUser: true, trackers: true });">
 
-<script>
-  if (localStorage.getItem("fitflowOnboardingComplete") !== "true") {
-    window.location.href = "login.html";
-  }
-</script>
+  <div class="burger" onclick="toggleSidebar()">☰</div>
 
-<!-- HAMBURGER MENU -->
-<div class="hamburger" onclick="toggleMenu()">☰</div>
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h2>FitFlow</h2>
+      <button class="close-btn" onclick="toggleSidebar()">×</button>
+    </div>
 
-<!-- SLIDE-OUT MENU -->
-<div id="sideMenu" class="side-menu">
+    <nav class="sidebar-nav">
+      <p class="sidebar-section">Main</p>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="progress.html">Progress</a>
+      <a href="journal.html">Journal</a>
 
-  <h2 class="menu-title">FitFlow Menu</h2>
+      <p class="sidebar-section">Trackers</p>
+      <a href="sleep.html">Sleep</a>
+      <a href="water.html">Water</a>
+      <a href="nutrition.html">Nutrition</a>
+      <a href="workouts.html">Workouts</a>
+      <a href="affirmations.html">Affirmations</a>
+      <a href="meditation.html">Meditation</a>
 
-  <button class="secondary" onclick="location.href='dashboard.html'">Dashboard</button>
+      <p class="sidebar-section">Other</p>
+      <a href="badges.html">Badges</a>
+      <a href="shop.html">Shop</a>
+      <a href="blog.html">Blog</a>
 
-  <h3 class="menu-section">Wellness</h3>
-  <button class="secondary" onclick="location.href='sleep.html'">Sleep</button>
-  <button class="secondary" onclick="location.href='water.html'">Water</button>
-  <button class="secondary" onclick="location.href='nutrition.html'">Nutrition</button>
-  <button class="secondary" onclick="location.href='workouts.html'">Workouts</button>
-  <button class="secondary" onclick="location.href='activity-log.html'">Activity Log</button>
+      <p class="sidebar-section">Account</p>
+      <a href="profile.html">Profile</a>
+      <a href="settings.html">Settings</a>
+      <a href="#" onclick="logoutUser()">Logout</a>
+    </nav>
+  </aside>
 
-  <h3 class="menu-section">Mindfulness</h3>
-  <button class="secondary" onclick="location.href='meditation.html'">Meditation</button>
-  <button class="secondary" onclick="location.href='breathing.html'">Breathing</button>
-  <button class="secondary" onclick="location.href='affirmations.html'">Affirmations</button>
-  <button class="secondary" onclick="location.href='journal.html'">Journal</button>
+  <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-  <h3 class="menu-section">Progress</h3>
-  <button class="secondary" onclick="location.href='profile.html'">Profile</button>
-  <button class="secondary" onclick="location.href='goals.html'">Goals</button>
-  <button class="secondary" onclick="location.href='badges.html'">Badges</button>
-  <button class="secondary" onclick="location.href='weekly-summary.html'">Weekly Summary</button>
+  <main class="content">
+    <h1>Meditation Tracker</h1>
 
-  <h3 class="menu-section">Extras</h3>
-  <button class="secondary" onclick="location.href='challenges.html'">Challenges</button>
-  <button class="secondary" onclick="location.href='shop.html'">Shop</button>
-  <button class="secondary" onclick="location.href='blog.html'">Blog</button>
-  <button class="secondary" onclick="location.href='settings.html'">Settings</button>
+    <input id="meditationMinutes" placeholder="Minutes meditated">
+    <button class="primary-btn">Save Meditation</button>
 
-  <h3 class="menu-section">Account</h3>
-  <button class="danger" onclick="logoutUser()">Logout</button>
+    <h2>Meditation Log</h2>
+    <div id="meditationLogList"></div>
+  </main>
 
-  <h3 class="menu-section">Admin</h3>
-  <button class="secondary" onclick="location.href='admin.html'">Admin Dashboard</button>
-
-</div>
-
-<div class="container">
-
-  <h1 class="gradient-text">Meditation</h1>
-
-  <!-- START SESSION -->
-  <section class="card" style="padding: var(--space-lg);">
-    <h2>Start a Session</h2>
-
-    <label class="field-label">Minutes</label>
-    <input type="number" id="medMinutes" min="1" class="input">
-
-    <button class="primary" onclick="logMeditation()" style="margin-top: var(--space-md);">
-      Begin
-    </button>
-
-    <p id="medStatus" class="subtext" style="margin-top: var(--space-sm);"></p>
-  </section>
-
-</div>
-
-<script src="fitflow-global.js"></script>
-<script src="script.js"></script>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("sideMenu").classList.toggle("open");
-  }
-
-  function logMeditation() {
-    const minutes = Number(document.getElementById("medMinutes").value);
-    const status = document.getElementById("medStatus");
-
-    if (!minutes) {
-      status.textContent = "Enter meditation minutes.";
-      return;
+  <script>
+    function toggleSidebar() {
+      document.getElementById("sidebar").classList.toggle("open");
+      document.getElementById("overlay").classList.toggle("show");
     }
-
-    // Award points for meditation
-    addPoints(10);
-
-    status.textContent = "Meditation logged.";
-  }
-</script>
+  </script>
 
 </body>
 </html>
